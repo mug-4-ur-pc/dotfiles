@@ -1,6 +1,7 @@
 require 'plugins.colorscheme'
 require 'plugins.tmux-splits'
 require 'plugins.snacks'
+require 'plugins.chezmoi'
 require 'plugins.mini'
 require 'plugins.ui'
 require 'plugins.misc'

@@ -63,7 +63,50 @@ set_map('n', '<leader>J', vim.diagnostic.open_float, 'Open floating diagnostic m
 
 set_map('n', '<leader>nh', function() Snacks.notifier.show_history() end, 'Open git log for current file')
 set_map('n', '<leader>.', function() Snacks.scratch() end, 'Toggle scratch buffer')
-set_map('n', '<leader>bs', function() Snacks.scratch.select() end, 'Select scratch buffer')
+set_map('n', '<leader>fs', function() Snacks.scratch.select() end, 'Select scratch buffer')
 set_map('n', '<leader>gg', function() Snacks.lazygit.open() end, 'Open lazygit')
 set_map('n', '<leader>gl', function() Snacks.lazygit.log() end, 'Open git log')
 set_map('n', '<leader>gL', function() Snacks.lazygit.log_file() end, 'Open git log for current file')
+
+set_map(
+    'n',
+    '<leader>ce',
+    function()
+        require('chezmoi.commands').edit {
+            targets = { vim.fn.expand '%:p' },
+            args = { '--watch' },
+        }
+    end,
+    'Chezmoi: Edit source of current file'
+)
+
+set_map(
+    'n',
+    '<leader>ca',
+    function()
+        require('chezmoi.commands').apply {
+            targets = { vim.fn.expand '%:p' },
+        }
+    end,
+    'Chezmoi: Apply current file'
+)
+
+set_map('n', '<leader>cA', function() require('chezmoi.commands').apply {} end, 'Chezmoi: Apply all')
+
+set_map('n', '<leader>fC', function() require('chezmoi.pick').snacks() end, 'Find config file')
+
+set_map(
+    'n',
+    '<leader>fn',
+    function()
+        require('chezmoi.pick').snacks(vim.fn.stdpath 'config', {
+            '--path-style',
+            'absolute',
+            '--include',
+            'files',
+            '--exclude',
+            'externals',
+        })
+    end,
+    'Open nvim config'
+)
