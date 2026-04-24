@@ -1,48 +1,62 @@
-
-vim.pack.add({
-  { src = "https://github.com/RRethy/base16-nvim" }
-})
-
-require('base16-colorscheme').setup {
-    base00 = '#{{ .theme.background }}', base01 = '#{{ .theme.black }}', base02 = '#{{ .theme.picker_background }}', base03 = '#{{ .theme.darkgray }}',
-    base04 = '#{{ .theme.white }}', base05 = '#{{ .theme.foreground }}', base06 = '#{{ .theme.brightmagenta }}', base07 = '#{{ .theme.cyan }}',
-    base08 = '#{{ .theme.red }}', base09 = '#{{ .theme.brightgreen }}', base0A = '#{{ .theme.brightred }}', base0B = '#{{ .theme.green }}',
-    base0C = '#{{ .theme.brightcyan }}', base0D = '#{{ .theme.blue }}', base0E = '#{{ .theme.magenta }}', base0F = '#{{ .theme.yellow }}',
+vim.pack.add {
+    { src = 'https://github.com/RRethy/base16-nvim' },
 }
 
-vim.api.nvim_set_hl(0, 'Comment', { fg = "#{{.theme.darkgray}}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'gitcommitComment', { fg = "#{{.theme.darkgray}}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'TSComment', { fg = "#{{.theme.darkgray}}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, '@comment', { fg = "#{{.theme.darkgray}}", italic = true, bold = true })
+require('base16-colorscheme').setup {
+    base00 = '#{{ .theme.background }}',
+    base01 = '#{{ .theme.black }}',
+    base02 = '#{{ .theme.picker_background }}',
+    base03 = '#{{ .theme.darkgray }}',
+    base04 = '#{{ .theme.white }}',
+    base05 = '#{{ .theme.foreground }}',
+    base06 = '#{{ .theme.brightmagenta }}',
+    base07 = '#{{ .theme.cyan }}',
+    base08 = '#{{ .theme.red }}',
+    base09 = '#{{ .theme.brightgreen }}',
+    base0A = '#{{ .theme.brightred }}',
+    base0B = '#{{ .theme.green }}',
+    base0C = '#{{ .theme.brightcyan }}',
+    base0D = '#{{ .theme.blue }}',
+    base0E = '#{{ .theme.magenta }}',
+    base0F = '#{{ .theme.yellow }}',
+}
 
-vim.api.nvim_set_hl(0, 'LineNr', { fg = "#{{.theme.red}}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#{{.theme.white}}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'Visual', { fg = "#{{.theme.highlight_foreground}}", bg = "#{{.theme.highlight_background}}" })
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = "#{{ .theme.background }}" })
+vim.api.nvim_set_hl(0, 'Comment', { fg = '#{{.theme.darkgray}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'gitcommitComment', { fg = '#{{.theme.darkgray}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'TSComment', { fg = '#{{.theme.darkgray}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, '@comment', { fg = '#{{.theme.darkgray}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'NonText', { fg = '#{{.theme.darkgray}}', italic = true, bold = true })
 
-vim.api.nvim_set_hl(0, 'PmenuSel', { fg = "#{{.theme.picker_foreground}}", bg = "#{{.theme.picker_background}}", bold = true })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#{{.theme.red}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#{{.theme.white}}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'Visual', { fg = '#{{.theme.highlight_foreground}}', bg = '#{{.theme.highlight_background}}' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#{{ .theme.background }}' })
 
-vim.api.nvim_set_hl(0, 'MiniIconsAzure', { fg = "#{{.theme.brightblue}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsBlue', { fg = "#{{.theme.blue}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsCyan', { fg = "#{{.theme.cyan}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsGreen', { fg = "#{{.theme.green}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsGrey', { fg = "#{{.theme.foreground}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsOrange', { fg = "#{{.theme.brightred}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsPurple', { fg = "#{{.theme.magenta}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsRed', { fg = "#{{.theme.red}}" })
-vim.api.nvim_set_hl(0, 'MiniIconsYellow', { fg = "#{{.theme.yellow}}" })
+vim.api.nvim_set_hl(0, 'PmenuSel', { fg = '#{{.theme.picker_foreground}}', bg = '#{{.theme.picker_background}}', bold = true })
 
-vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = "#{{ .theme.white }}", bg = "#{{ .theme.main_color_background }}", bold = true })
+vim.api.nvim_set_hl(0, 'MiniIconsAzure', { fg = '#{{.theme.brightblue}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsBlue', { fg = '#{{.theme.blue}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsCyan', { fg = '#{{.theme.cyan}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsGreen', { fg = '#{{.theme.green}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsGrey', { fg = '#{{.theme.foreground}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsOrange', { fg = '#{{.theme.brightred}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsPurple', { fg = '#{{.theme.magenta}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsRed', { fg = '#{{.theme.red}}' })
+vim.api.nvim_set_hl(0, 'MiniIconsYellow', { fg = '#{{.theme.yellow}}' })
 
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = "#{{ .theme.background }}", bg = "#{{ .theme.background }}" })
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = "#{{ .theme.background }}" })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = "#{{ .theme.background }}", bg = "#{{ .theme.background }}" })
-vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { fg = "#{{ .theme.picker_foreground }}", bg = "#{{ .theme.background }}", bold = true })
-vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = "#{{ .theme.green }}", bold = true })
-vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { fg = "#{{ .theme.main_color_foreground }}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { fg = "#{{ .theme.main_color_foreground }}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { fg = "#{{ .theme.main_color_foreground }}", italic = true, bold = true })
-vim.api.nvim_set_hl(0, 'TelescopeSelection', { fg = "#{{ .theme.picker_foreground }}", bg = "#{{ .theme.picker_background }}", bold = true })
+vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = '#{{ .theme.white }}', bg = '#{{ .theme.main_color_background }}', bold = true })
 
-vim.api.nvim_set_hl(0, 'Indent', { fg = "#{{ .theme.darkgray }}" })
-vim.api.nvim_set_hl(0, 'IndentScope', { fg = "#{{ .theme.darkgray }}", bold = true })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#{{ .theme.background }}', bg = '#{{ .theme.background }}' })
+vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#{{ .theme.background }}' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#{{ .theme.background }}', bg = '#{{ .theme.background }}' })
+vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { fg = '#{{ .theme.picker_foreground }}', bg = '#{{ .theme.background }}', bold = true })
+vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = '#{{ .theme.green }}', bold = true })
+vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { fg = '#{{ .theme.main_color_foreground }}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { fg = '#{{ .theme.main_color_foreground }}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { fg = '#{{ .theme.main_color_foreground }}', italic = true, bold = true })
+vim.api.nvim_set_hl(0, 'TelescopeSelection', { fg = '#{{ .theme.picker_foreground }}', bg = '#{{ .theme.picker_background }}', bold = true })
+
+vim.api.nvim_set_hl(0, 'Indent', { fg = '#{{ .theme.darkgray }}' })
+vim.api.nvim_set_hl(0, 'IndentScope', { fg = '#{{ .theme.darkgray }}', bold = true })
+
+vim.api.nvim_set_hl(0, 'SnacksPickerListCursorLine', { fg = '#{{ .theme.picker_foreground }}', bg = '#{{ .theme.picker_background }}', bold = true })
