@@ -1,0 +1,39 @@
+{{- $email := promptStringOnce . "email" "Email for git" -}}
+{{- $name := promptStringOnce . "name" "Username For git" -}}
+{{- $has_root := promptBoolOnce . "has_root" "Have you sudo access?" }}
+{{- $platform := promptChoiceOnce . "platform" "Choose host type" (list "server" "desktop") -}}
+{{- $gpu := "none" -}}
+{{- $is_laptop := false -}}
+
+{{- if eq $platform "desktop" -}}
+{{-   $gpu = promptChoiceOnce . "gpu" "Choose your GPU type" (list "amd" "intel" "nvidia" "none") -}}
+{{-   $is_laptop = promptBoolOnce . "is_laptop" "Is it a laptop?" -}}
+{{- end -}}
+
+[data]
+    email = {{ $email | quote }}
+    name = {{ $name | quote }}
+    has_root = {{ $has_root }}
+    platform = {{ $platform | quote }}
+    gpu = {{ $gpu | quote }}
+    is_laptop = {{ $is_laptop }}
+    is_server = {{ eq $platform "server" }}
+    is_desktop = {{ eq $platform "desktop" }}
+
+[data.theme]
+    name = "clay-dark"
+    {{ include (joinPath "themes" .theme.name) }}
+
+[edit]
+    watch = true
+
+[git]
+    autoAdd = true
+    autoCommit = false
+    autoPush = false
+
+{{ if lookPath "nvim" }}
+[merge]
+    command = "nvim"
+    args = ["-d"]
+{{ end }}

@@ -1,0 +1,32 @@
+background = "2a2f24"
+foreground = "f1eadc"
+
+main_color_background = "a6848d"
+main_color_foreground = "7da191"
+
+cursor_background = "e28a6a"
+cursor_foreground = "2a2f24"
+
+picker_background = "4f5b2a"
+picker_foreground = "fffaf2"
+
+highlight_foreground = "fffaf2"
+highlight_background = "c96f4a"
+
+black     = "2a2f24"
+red       = "c96f4a"
+green     = "83915c"
+yellow    = "d2b45c"
+blue      = "5d849a"
+magenta   = "a6848d"
+cyan      = "7da191"
+lightgray = "f1eadc"
+
+darkgray      = "4f5b2a"
+brightred     = "e28a6a"
+brightgreen   = "a8b683"
+brightyellow  = "e7c57a"
+brightblue    = "89a8ba"
+brightmagenta = "c6a5ad"
+brightcyan    = "a1c0b3"
+white         = "fffaf2"

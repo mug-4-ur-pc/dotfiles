@@ -1,0 +1,30 @@
+
+export XDG_BIN_HOME="$HOME/.local/bin"         # Scripts and apps
+export XDG_CONFIG_HOME="$HOME/.config"         # Config files
+export XDG_CACHE_HOME="$HOME/.cache"           # Cache files
+export XDG_DATA_HOME="$HOME/.local/share"      # Application data
+export XDG_STATE_HOME="$HOME/.local/state"     # Logs and state files
+
+export TMUX_TMPDIR=$XDG_CACHE_HOME/tmux
+
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export ZSH_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
+{{ if lookPath "nvim" }}
+export EDITOR="nvim"
+export VISUAL="nvim"
+export SUDO_EDITOR="nvim"
+export MANPAGER='nvim +Man!'
+{{ end }}
+{{ if lookPath "zathura" }}
+export READER="zathura"
+{{ end }}
+
+export OPENER="xdg-open"
+
+export GOPATH=$XDG_DATA_HOME/go
+export GOBIN=$GOPATH/bin
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+
+export PATH="$PATH:$XDG_BIN_HOME:$GOBIN:$XDG_DATA_HOME/gem/ruby/3.4.0/bin/"
+

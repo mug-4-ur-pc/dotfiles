@@ -1,0 +1,45 @@
+
+# Editor
+{{ if lookPath "nvim" }}
+alias_expandable -g 'v=nvim'
+{{ else }}
+alias_expandable -g v=vim
+{{ end }}
+
+# Eza
+{{ if lookPath "eza" }}
+alias -g ls='eza --color=auto --icons=always --git --no-user'
+{{ else }}
+alias -g ls='ls --color=auto -h'
+{{ end }}
+
+# Bat
+{{ if lookPath "bat" }}
+alias cat='bat'
+alias -- --help='--help 2>&1 | bat --language=help --style=plain'
+{{ else if lookPath "batcat" }}
+alias cat='batcat'
+alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
+{{ end }}
+alias printkey='\cat -v'
+
+# Tree for stdin
+alias as-tree='tree --fromfile'
+
+# Config actions
+alias cfg-edit='chezmoi edit'
+
+# Clipboard
+if [[ $OSTYPE = "linux-gnu" ]]; then
+    alias -g cb-copy='wl-copy || xclip -in -selection clipboard'
+    alias -g cb-paste='wl-paste'
+fi
+
+alias mv="mv -i"
+alias cp="cp -ri"
+alias mkdir="mkdir -p"
+alias c=' clear && tmux clear-history || true'
+
+alias path='echo -e ${PATH//:/\\n}'
+
+alias ping='ping -c 5'

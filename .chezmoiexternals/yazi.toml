@@ -1,0 +1,89 @@
+[".config/yazi/plugins/chmod.yazi"]
+    type = "archive"
+    url = "https://github.com/yazi-rs/plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["plugins-main/chmod.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/git.yazi"]
+    type = "archive"
+    url = "https://github.com/yazi-rs/plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["plugins-main/git.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/vcs-files.yazi"]
+    type = "archive"
+    url = "https://github.com/yazi-rs/plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["plugins-main/vcs-files.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/piper.yazi"]
+    type = "archive"
+    url = "https://github.com/yazi-rs/plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["plugins-main/piper.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/spot.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/spot.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/spot-image.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/spot-image.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/spot-audio.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/spot-audio.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/spot-video.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/spot-video.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/preview-git.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/preview-git.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/preview-audio.yazi"]
+    type = "archive"
+    url = "https://github.com/AminurAlam/yazi-plugins/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    include = ["yazi-plugins-main/preview-audio.yazi/**"]
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/ucp.yazi"]
+    type = "git-repo"
+    url = "https://github.com/simla33/ucp.yazi.git"
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/confirm-quit.yazi"]
+    type = "git-repo"
+    url = "https://github.com/jessefarinacci/confirm-quit.yazi.git"
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/auch.yazi"]
+    type = "git-repo"
+    url = "https://github.com/ndtoan96/ouch.yazi.git"
+    refreshPeriod = "360h"
+
+[".config/yazi/plugins/torrent-preview.yazi"]
+    type = "git-repo"
+    url = "https://github.com/kirasok/torrent-preview.yazi.git"
+    refreshPeriod = "360h"
