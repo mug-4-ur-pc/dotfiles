@@ -55,8 +55,12 @@ set_map('v', '<A-k>', ':m .-2<CR>==gv', ' Move selected text up')
 
 set_map('n', '<leader>lf', function() require('conform').format { async = true, lsp_format = 'fallback' } end, 'Format file')
 
+-- Clipboard copy/paste
+set_map({ 'n', 'v' }, '<leader>d', '"+d')
+set_map({ 'n', 'v' }, '<leader>y', '"+y')
+
 -- Keep last yanked when pasting
-set_map('v', 'p', '"_dP')
+set_map('v', 'p', '"_dp')
 
 set_map('n', '<leader>ld', vim.diagnostic.setloclist, 'Open diagnostic quickfix list')
 set_map('n', '<leader>J', vim.diagnostic.open_float, 'Open floating diagnostic message')

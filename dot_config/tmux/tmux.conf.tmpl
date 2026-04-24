@@ -26,6 +26,7 @@ set -g mouse on
 set -g status-interval 20
 set -g allow-passthrough on
 set -s extended-keys on
+set -as terminal-features 'ghostty:extkeys'
 set-option -g focus-events on
 
 # Set prefix key
@@ -37,13 +38,16 @@ bind r source-file ~/.config/tmux/tmux.conf\; display "Config reloaded!"
 
 unbind %
 unbind \"
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
+
+bind-key w switch-client -T window-mgr
+bind-key -T window-mgr v split-window -h -c "#{pane_current_path}"
+bind-key -T window-mgr h split-window -v -c "#{pane_current_path}"
+bind-key -T window-mgr w choose-window
+bind-key -T window-mgr q kill-pane
 
 bind c new-window -c "#{pane_current_path}"
-bind q kill-pane
-bind d kill-window
-bind e detach-client
+bind q kill-window
+bind d detach-client
 bind Q confirm-before -p "Kill entire session? (y/n)" kill-session
 bind v copy-mode
 
@@ -62,7 +66,7 @@ bind -r m resize-pane -Z
 # Enable vi mode to allow us to use vim keys to move around in copy mode (Prefix + [ places us in copy mode)
 set-window-option -g mode-keys vi
 
-bind -T copy-mode-vi 'v' send -X begin-selection 
+bind -T copy-mode-vi 'v' send -X begin-selection
 bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "cb-copy"
 bind p run "wl-paste -n | tmux load-buffer - ; tmux paste-buffer"
 
@@ -104,7 +108,7 @@ set -g pane-active-border-style "fg=${act_border}"
 set -g @resurrect-capture-pane-contents 'on'
 set -g @resurrect-dir '~/.local/share/tmux/resurrect'
 set -g @continuum-restore 'on'
-set -g @continuum-save-interval '15'
+set -g @continuum-save-interval '10'
 
 # vim integration
 {{ if lookPath "nvim" }}
@@ -131,4 +135,3 @@ set-environment -g TMUX_PLUGIN_MANAGER_PATH '~/.local/share/tmux/plugins'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.local/share/tmux/tpm/tpm'
-

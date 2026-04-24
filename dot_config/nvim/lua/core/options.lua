@@ -41,7 +41,7 @@ vim.opt.showtabline = 1
 vim.opt.pumheight = 10
 
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 1000
 
 vim.opt.splitright = true
 vim.opt.splitbelow = false
