@@ -51,6 +51,9 @@ require('snacks').setup {
         style = 'minimal',
         top_down = false,
     },
+    picker = {
+        -- TODO: change telescope to snacks.picker
+    },
     scratch = {
         win_by_ft = {
             lua = {

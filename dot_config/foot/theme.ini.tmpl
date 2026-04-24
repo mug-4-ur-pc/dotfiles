@@ -1,0 +1,40 @@
+[colors-dark]
+alpha=1.0
+
+background={{ .theme.background }}
+foreground={{ .theme.foreground }}
+
+#flash=b8860b
+#flash=2a2f24
+#flash-alpha=0.5
+
+cursor={{ .theme.cursor_foreground }} {{ .theme.cursor_background }}
+
+## Normal/regular colors (color palette 0-7)
+regular0={{ .theme.black }}  # black
+regular1={{ .theme.red }}  # red
+regular2={{ .theme.green }}  # green
+regular3={{ .theme.yellow }}  # yellow
+regular4={{ .theme.blue }}  # blue
+regular5={{ .theme.magenta }}  # magenta
+regular6={{ .theme.cyan }}  # cyan
+regular7={{ .theme.lightgray }}  # white
+
+## Bright colors (color palette 8-15)
+bright0={{ .theme.darkgray }}   # bright black (comments)
+bright1={{ .theme.brightred }}   # bright red
+bright2={{ .theme.brightgreen }}   # bright green
+bright3={{ .theme.brightyellow }}   # bright yellow
+bright4={{ .theme.brightblue }}   # bright blue
+bright5={{ .theme.brightmagenta }}   # bright magenta
+bright6={{ .theme.brightcyan }}   # bright cyan
+bright7={{ .theme.white }}   # bright white
+
+## Misc colors
+selection-foreground={{ .theme.highlight_foreground }}
+selection-background={{ .theme.highlight_background }}
+# jump-labels=<regular0> <regular3>          # black-on-yellow
+# scrollback-indicator=<regular0> <bright4>  # black-on-bright-blue
+# search-box-no-match=<regular0> <regular1>  # black-on-red
+# search-box-match=<regular0> <regular3>     # black-on-yellow
+urls={{ .theme.main_color_foreground }}
