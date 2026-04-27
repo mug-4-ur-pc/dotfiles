@@ -10,6 +10,8 @@
 {{-   $is_laptop = promptBoolOnce . "is_laptop" "Is it a laptop?" -}}
 {{- end -}}
 
+{{ $theme := "clay-dark" }}
+
 [data]
     email = {{ $email | quote }}
     name = {{ $name | quote }}
@@ -21,8 +23,8 @@
     is_desktop = {{ eq $platform "desktop" }}
 
 [data.theme]
-    name = "clay-dark"
-    {{ include (joinPath "themes" .theme.name) }}
+    name = {{ $theme | quote }}
+    {{ include (joinPath "themes" $theme) }}
 
 [edit]
     watch = true
