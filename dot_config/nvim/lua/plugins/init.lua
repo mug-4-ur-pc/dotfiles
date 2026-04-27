@@ -1,4 +1,5 @@
 require 'plugins.colorscheme'
+require 'plugins.deps'
 require 'plugins.tmux-splits'
 require 'plugins.snacks'
 require 'plugins.chezmoi'

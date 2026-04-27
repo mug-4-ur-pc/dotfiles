@@ -114,3 +114,7 @@ set_map(
     end,
     'Open nvim config'
 )
+
+set_map({ 'n', 'v' }, '<leader>yf', '<cmd>Yazi<cr>', 'Open yazi at the current file')
+set_map('n', '<leader>yF', '<cmd>Yazi cwd<cr>', "Open the file manager in nvim's working directory")
+set_map('n', '<leader>yy', '<cmd>Yazi toggle<cr>', 'Resume the last yazi session')
