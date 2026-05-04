@@ -1,2 +1,17 @@
+config-file = colors.ghostty
+config-file = font.ghostty
+
 window-decoration = false
+background-image-fit = none
+background-image-repeat = true
+
+maximize = true
+
 term = xterm-256color
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+cursor-style-blink = false
+cursor-style = block
+shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo

@@ -28,44 +28,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
         local map = function(keys, func, desc) vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc }) end
 
-        map('gd', require('telescope.builtin').lsp_definitions, 'Goto definition')
-        map('gR', require('telescope.builtin').lsp_references, 'Goto references')
-        map('gI', require('telescope.builtin').lsp_implementations, 'Goto implementation')
-        map('gt', require('telescope.builtin').lsp_type_definitions, 'Goto type definition')
+        map('gd', function() Snacks.picker.lsp_definitions() end, 'Goto Definition')
+        map('gD', function() Snacks.picker.lsp_declarations() end, 'Goto Declaration')
+        map('gR', function() Snacks.picker.lsp_references() end, 'References')
+        map('gI', function() Snacks.picker.lsp_implementations() end, 'Goto Implementation')
+        map('gt', function() Snacks.picker.lsp_type_definitions() end, 'Goto Type Definition')
 
-        map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Find symbols')
-        map('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Find symbols in workspace')
+        map('<leader>ls', function() Snacks.picker.lsp_symbols() end, 'LSP Symbols')
+        map('<leader>lS', function() Snacks.picker.lsp_workspace_symbols() end, 'LSP Workspace Symbols')
         map('<leader>lr', vim.lsp.buf.rename, 'Rename symbol')
         map('<leader>la', vim.lsp.buf.code_action, 'Code action')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         map('<leader>wa', vim.lsp.buf.add_workspace_folder, 'Workspace add Folder')
         map('<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Workspace remove Folder')
         map('<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'Workspace list Folders')
-
-        -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-        -- if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-        --     local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
-        --     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-        --         buffer = event.buf,
-        --         group = highlight_augroup,
-        --         callback = vim.lsp.buf.document_highlight,
-        --     })
-        --
-        --     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-        --         buffer = event.buf,
-        --         group = highlight_augroup,
-        --         callback = vim.lsp.buf.clear_references,
-        --     })
-        --
-        --     vim.api.nvim_create_autocmd('LspDetach', {
-        --         group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-        --         callback = function(event2)
-        --             vim.lsp.buf.clear_references()
-        --             vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
-        --         end,
-        --     })
-        -- end
     end,
 })
