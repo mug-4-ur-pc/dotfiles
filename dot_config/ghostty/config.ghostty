@@ -15,3 +15,6 @@ split-inherit-working-directory = true
 cursor-style-blink = false
 cursor-style = block
 shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo
+
+custom-shader = shaders/cursor_tail.glsl
+custom-shader = shaders/ripple_cursor.glsl

@@ -72,6 +72,14 @@
       "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
+    "oil-git.nvim": {
+      "rev": "85731c6e0deb6da473ca627f09b7de6ca0f07435",
+      "src": "https://github.com/malewicz1337/oil-git.nvim"
+    },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -103,6 +111,10 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "yazi.nvim": {
+      "rev": "25f370e6e84ca7ebca5927ec66cd93e2fa16fd3d",
+      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }
