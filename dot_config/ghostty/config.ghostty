@@ -7,6 +7,9 @@ background-image-repeat = true
 
 maximize = true
 
+window-padding-x = 2
+window-padding-y = 2
+
 term = xterm-256color
 window-inherit-working-directory = true
 tab-inherit-working-directory = true
@@ -15,6 +18,18 @@ split-inherit-working-directory = true
 cursor-style-blink = false
 cursor-style = block
 shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo
+
+mouse-scroll-multiplier = 1.5
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+copy-on-select = clipboard
+
+confirm-close-surface = false
+
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-animation-duration = 0.15
 
 custom-shader = shaders/cursor_tail.glsl
 custom-shader = shaders/ripple_cursor.glsl
