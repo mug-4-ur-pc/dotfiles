@@ -1,9 +1,9 @@
-vim.pack.add({
+vim.pack.add {
     { src = 'https://github.com/nmac427/guess-indent.nvim' },
-    { src = 'https://github.com/stevearc/conform.nvim' }
-})
+    { src = 'https://github.com/stevearc/conform.nvim' },
+}
 
-require("conform").setup({
+require('conform').setup {
     formatters_by_ft = {
         sh = { 'shfmt' },
         bash = { 'shfmt' },
@@ -19,9 +19,20 @@ require("conform").setup({
 
         python = { 'ruff_organize_imports', 'ruff_format' },
 
-        markdown = { 'injected' },
+        markdown = { 'prettier', 'injected' },
 
-        ['*'] = { 'trim_newlines', 'trim_whitespace' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        html = { 'prettier' },
+        css = { 'prettier' },
+        scss = { 'prettier' },
+        json = { 'prettier' },
+        jsonc = { 'prettier' },
+        yaml = { 'prettier' },
+
+        ['*'] = { 'trim_whitespace' },
     },
     formatters = {
         shfmt = {
@@ -54,6 +65,6 @@ require("conform").setup({
         return { timeout_ms = 800, lsp_format = 'fallback' }
     end,
     notify_on_error = true,
-})
+}
 
-require("guess-indent").setup()
+require('guess-indent').setup()

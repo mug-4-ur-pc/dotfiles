@@ -1,17 +1,15 @@
 #!/usr/bin/zsh
 
-
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     command yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd < "$tmp"
+    IFS= read -r -d '' cwd <"$tmp"
     [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
     rm -f -- "$tmp"
 }
 
-
 function f() {
-    sels=( "${(@f)$(fd "${fd_default[@]}" "${@:2}"| fzf)}" )
+    sels=("${(@f)$(fd "${fd_default[@]}" "${@:2}" | fzf)}")
     test -n "$sels" && print -z -- "$1 ${sels[@]:q:q}"
 }
 
@@ -23,8 +21,8 @@ function fm() {
 # Open file with search
 function fo() {
     IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e --preview="bat --color=always {}")")
-    key=$(head -1 <<< "$out")
-    file=$(head -2 <<< "$out" | tail -1)
+    key=$(head -1 <<<"$out")
+    file=$(head -2 <<<"$out" | tail -1)
     if [ -n "$file" ]; then
         [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
     fi
@@ -54,4 +52,11 @@ function docker-rm-containers() {
 # Select a docker image or images to remove
 function docker-rm-images() {
     docker images | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r docker rmi
+}
+
+function sw() {
+    tmp=$1.tmp.swap~
+    mv $1 $tmp
+    mv $2 $1
+    mv $tmp $2
 }

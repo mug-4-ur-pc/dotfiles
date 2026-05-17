@@ -31,5 +31,11 @@ quick-terminal-position = top
 quick-terminal-screen = mouse
 quick-terminal-animation-duration = 0.15
 
-custom-shader = shaders/cursor_tail.glsl
+custom-shader = shaders/cursor_sweep.glsl
 custom-shader = shaders/ripple_cursor.glsl
+
+{{ if .is_laptop }}
+custom-shader-animation = false
+{{ else }}
+custom-shader-animation = true
+{{ end }}

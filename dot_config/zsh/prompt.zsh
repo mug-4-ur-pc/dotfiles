@@ -2,55 +2,56 @@ autoload -U colors && colors
 setopt prompt_subst
 
 typeset -g PROMPT_EXIT_CODE=0
+typeset -g PROMPT_GIT_INFO=""
+typeset -g PROMPT_PWD_INFO=""
+typeset -g PROMPT_EXIT_INFO=""
+typeset -g PROMPT_CHAR=""
 
 function precmd() {
     PROMPT_EXIT_CODE=$?
-}
 
-function prompt_exit_code() {
-    local code=$PROMPT_EXIT_CODE
-    (( code != 0 )) && echo "%F{red}${code}%f "
-}
-
-function prompt_char() {
-    if [[ $PROMPT_EXIT_CODE = 0 ]]; then
-        echo "%F{green}:)%f"
+    # Pre-compute exit code display
+    if ((PROMPT_EXIT_CODE != 0)); then
+        PROMPT_EXIT_INFO="%F{red}${PROMPT_EXIT_CODE}%f "
     else
-        echo "%F{red}:(%f"
+        PROMPT_EXIT_INFO=""
     fi
-}
 
-function prompt_pwd() {
-    local pwd="${PWD/#$HOME/~}"
-    # If in git repo, show repo name + relative path
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        local repo=$(basename "$(git rev-parse --show-toplevel)")
-        local rel=$(git rev-parse --show-prefix)
-        echo "%F{magenta}$repo%f/%F{cyan}${rel%/}%f"
+    # Pre-compute prompt character
+    if [[ $PROMPT_EXIT_CODE == 0 ]]; then
+        PROMPT_CHAR="%F{green}:)%f"
     else
-        # Shorten deep paths: ~/p/project instead of ~/projects/project
-        echo "%F{magenta}${pwd:s/~/\~/}%f"
+        PROMPT_CHAR="%F{red}:(%f"
+    fi
+
+    # Pre-compute git and pwd info (the expensive part)
+    local git_toplevel
+    if git_toplevel=$(git rev-parse --show-toplevel 2>/dev/null); then
+        local repo=$(basename "$git_toplevel")
+        local prefix=$(git rev-parse --show-prefix 2>/dev/null)
+        PROMPT_PWD_INFO="%F{magenta}${repo}%f/%F{cyan}${prefix%/}%f"
+
+        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+        git diff --cached --quiet 2>/dev/null
+        local has_staged=$?
+        git diff --quiet 2>/dev/null
+        local has_unstaged=$?
+
+        local color="%F{darkgray}"
+        if [[ $has_staged -ne 0 && $has_unstaged -eq 0 ]]; then
+            color="%F{green}"
+        elif [[ $has_staged -eq 0 && $has_unstaged -ne 0 ]]; then
+            color="%F{magenta}"
+        elif [[ $has_staged -ne 0 && $has_unstaged -ne 0 ]]; then
+            color="%F{yellow}"
+        fi
+
+        PROMPT_GIT_INFO=" %B${color}${branch}%f%b=>"
+    else
+        local pwd="${PWD/#$HOME/~}"
+        PROMPT_PWD_INFO="%F{magenta}${pwd}%f"
+        PROMPT_GIT_INFO=""
     fi
 }
 
-function prompt_git() {
-    git rev-parse --is-inside-work-tree &>/dev/null || return
-
-    local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD)
-    local has_staged=$(git diff --cached --quiet 2>/dev/null; echo $?)
-    local has_unstaged=$(git diff --quiet 2>/dev/null; echo $?)
-
-    local color="%F{darkgray}"  # default: clean
-
-    if [[ $has_staged -ne 0 && $has_unstaged -eq 0 ]]; then
-        color="%F{green}"      # only staged
-    elif [[ $has_staged -eq 0 && $has_unstaged -ne 0 ]]; then
-        color="%F{magenta}"    # only unstaged
-    elif [[ $has_staged -ne 0 && $has_unstaged -ne 0 ]]; then
-        color="%F{yellow}"     # both (mixed) - or keep magenta
-    fi
-
-    echo " %B${color}${branch}%f%b=>"
-}
-
-PROMPT=' $(prompt_git)$(prompt_pwd) $(prompt_exit_code)$(prompt_char) '
+PROMPT=' ${PROMPT_GIT_INFO}${PROMPT_PWD_INFO} ${PROMPT_EXIT_INFO}${PROMPT_CHAR} '

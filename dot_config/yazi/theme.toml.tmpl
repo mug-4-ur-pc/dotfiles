@@ -1,30 +1,30 @@
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
-# : Flavor {{{
+# : Flavor
 
 [flavor]
 dark  = ""
 light = ""
 
-# : }}}
+# :
 
 
-# : App {{{
+# : App
 
 [app]
 overall = {}
 
-# : }}}
+# :
 
 
-# : Manager {{{
+# : Manager
 
 [mgr]
 cwd = { fg = "cyan", bold = true }
 
 # Find
-find_keyword  = { bg = "darkgray", fg = "yellow", bold = true, italic = true, underline = true }
+find_keyword  = { bg = "#{{ .theme.picker_background }}", fg = "yellow", bold = true, italic = true, underline = true }
 find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
 # Symlink
@@ -37,9 +37,9 @@ marker_marked   = { fg = "lightcyan",   bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 
 # Count
-count_copied   = { fg = "lightgreen", bg = "black" }
-count_cut      = { fg = "lightred", bg = "black" }
-count_selected = { fg = "lightyellow", bg = "black" }
+count_copied   = { fg = "lightgreen", bg = "#{{ .theme.background }}" }
+count_cut      = { fg = "lightred", bg = "#{{ .theme.background }}" }
+count_selected = { fg = "lightyellow", bg = "#{{ .theme.background }}" }
 
 # Border
 border_symbol = " "
@@ -48,23 +48,23 @@ border_style  = { fg = "red" }
 # Highlighting
 syntect_theme = ""
 
-# : }}}
+# :
 
 
-# : Tabs {{{
+# : Tabs
 
 [tabs]
-active   = { bg = "darkgray", fg = "brightmagenta", bold = true, italic = true }
-inactive = { bg = "black", fg = "magenta", italic = true }
+active   = { bg = "#{{ .theme.picker_background }}", fg = "brightmagenta", bold = true, italic = true }
+inactive = { bg = "#{{ .theme.background }}", fg = "magenta", italic = true }
 
 # Separator
 sep_inner = { open = "", close = "" }
 sep_outer = { open = " ", close = " " }
 
-# : }}}
+# :
 
 
-# : Mode {{{
+# : Mode
 
 [mode]
 normal_main = { bg = "magenta", fg = "white", bold = true }
@@ -78,29 +78,29 @@ select_alt  = { bg = "blue", fg = "black", bold = true, italic = true }
 unset_main = { bg = "red", fg = "white", bold = true }
 unset_alt  = { bg = "red", fg = "white", bold = true, italic = true }
 
-# : }}}
+# :
 
 
-# : Indicator of hovered file {{{
+# : Indicator of hovered file
 
 [indicator]
-parent  = { bg = "darkgray", fg = "white", italic = true }
-current = { bg = "darkgray", fg = "white", bold = true }
-preview = { bg = "darkgray", fg = "white", italic = true }
+parent  = { bg = "#{{ .theme.picker_background }}", fg = "white", italic = true }
+current = { bg = "#{{ .theme.picker_background }}", fg = "white", bold = true }
+preview = { bg = "#{{ .theme.picker_background }}", fg = "white", italic = true }
 padding = { open = "", close = "" }
 
-# : }}}
+# :
 
 
-# : Status bar {{{
+# : Status bar
 
 [status]
-overall   = { bg = "black" }
+overall   = { bg = "#{{ .theme.background }}" }
 sep_left  = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
 # Permissions
-perm_sep   = { fg = "darkgray" }
+perm_sep   = { fg = "black" }
 perm_type  = { fg = "green" }
 perm_read  = { fg = "yellow" }
 perm_write = { fg = "red" }
@@ -108,30 +108,30 @@ perm_exec  = { fg = "cyan" }
 
 # Progress
 progress_label  = { bold = true }
-progress_normal = { fg = "green", bg = "darkgray" }
-progress_error  = { fg = "lightyellow", bg = "darkgray" }
+progress_normal = { fg = "green", bg = "#{{ .theme.picker_background }}" }
+progress_error  = { fg = "lightyellow", bg = "#{{ .theme.picker_background }}" }
 
-# : }}}
+# :
 
 
-# : Which {{{
+# : Which
 
 [which]
 cols            = 3
-mask            = { bg = "black" }
+mask            = { bg = "#{{ .theme.background }}" }
 cand            = { fg = "lightcyan" }
 rest            = { fg = "darkgray" }
 desc            = { fg = "lightmagenta" }
 separator       = "  "
-separator_style = { fg = "darkgray" }
+separator_style = { fg = "black" }
 
-# : }}}
+# :
 
 
-# : Confirmation {{{
+# : Confirmation
 
 [confirm]
-border     = { fg = "darkgray" }
+border     = { fg = "black" }
 title      = { fg = "blue" }
 body       = {}
 list       = {}
@@ -139,23 +139,23 @@ btn_yes    = { fg = "brightgreen" }
 btn_no     = { fg = "brightred" }
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
-# : }}}
+# :
 
 
-# : Spotter {{{
+# : Spotter
 
 [spot]
-border = { fg = "darkgray" }
+border = { fg = "black" }
 title  = { fg = "cyan" }
 
 # Table
 tbl_col  = { fg = "brightblue" }
 tbl_cell = { bg = "darkgray", fg = "white" }
 
-# : }}}
+# :
 
 
-# : Notification {{{
+# : Notification
 
 [notify]
 title_info  = { fg = "brightgreen" }
@@ -167,35 +167,35 @@ icon_info  = ""
 icon_warn  = ""
 icon_error = ""
 
-# : }}}
+# :
 
 
-# : Picker {{{
+# : Picker
 
 [pick]
-border   = { fg = "darkgray" }
+border   = { fg = "black" }
 active   = { fg = "magenta", bold = true }
 inactive = { fg = "lightgray" }
 
-# : }}}
+# :
 
 
-# : Input {{{
+# : Input
 
 [input]
-border   = { fg = "darkgray" }
+border   = { fg = "black" }
 title    = {}
 value    = {}
-selected = { bg = "darkgray", fg = "white" }
+selected = { bg = "#{{ .theme.picker_background }}", fg = "white" }
 
-# : }}}
+# :
 
 
-# : Completion {{{
+# : Completion
 
 [cmp]
-border   = { fg = "darkgray" }
-active   = { bg = "darkgray", fg = "white" }
+border   = { fg = "black" }
+active   = { bg = "#{{ .theme.picker_background }}", fg = "white" }
 inactive = { fg = "lightgray" }
 
 # Icons
@@ -203,32 +203,32 @@ icon_file    = ""
 icon_folder  = ""
 icon_command = ""
 
-# : }}}
+# :
 
 
-# : Task manager {{{
+# : Task manager
 
 [tasks]
-border  = { fg = "darkgray" }
+border  = { fg = "black" }
 title   = {}
 hovered = { fg = "brightmagenta", bold = true }
 
-# : }}}
+# :
 
 
-# : Help menu {{{
+# : Help menu
 
 [help]
 on      = { fg = "cyan" }
 run     = { fg = "magenta" }
 desc    = { fg = "lightgray" }
-hovered = { bg = "darkgray", fg = "white", bold = true }
+hovered = { bg = "#{{ .theme.picker_background }}", fg = "white", bold = true }
 footer  = { bg = "black", fg = "white" }
 
-# : }}}
+# :
 
 
-# : File-specific styles {{{
+# : File-specific styles
 
 [filetype]
 rules = [
@@ -252,10 +252,10 @@ rules = [
 	{ url = "*/", fg = "blue" }
 ]
 
-# : }}}
+# :
 
 
-# : Icons {{{
+# : Icons
 
 [icon]
 globs = []
@@ -995,4 +995,4 @@ conds = [
 	{ if = "!dir", text = "", fg = "#ffffff" },
 ]
 
-# : }}}
+# :
