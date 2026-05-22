@@ -1,0 +1,5 @@
+[".local/share/icons/Bibata-Modern-Ice"]
+    type = "archive"
+    url = "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Ice.tar.xz"
+    exact = true
+    stripComponents = 1
