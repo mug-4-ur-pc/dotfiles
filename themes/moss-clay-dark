@@ -13,6 +13,8 @@ picker_foreground = "fffaf2"
 highlight_foreground = "fffaf2"
 highlight_background = "c96f4a"
 
+border = "2a2f24"
+
 black     = "4f5b2a"
 red       = "c96f4a"
 green     = "83915c"

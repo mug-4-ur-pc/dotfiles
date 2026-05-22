@@ -1,0 +1,13 @@
+
+spawn-at-startup "kanshi"
+
+spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/wallpaper.sh"
+spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/idle.sh"
+spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/clipboard.sh"
+spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/theme.sh"
+
+spawn-at-startup "/usr/lib/hyprpolkitagent/hyprpolkitagent"
+
+spawn-sh-at-startup "$XDG_CONFIG_HOME/eww/launch.sh"
+
+spawn-sh-at-startup "$XDG_CONFIG_HOME/waybar/launch.sh"

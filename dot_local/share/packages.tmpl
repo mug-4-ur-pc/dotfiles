@@ -1,0 +1,40 @@
+
+bat-extras
+eza
+fzf
+git-delta
+glow
+lazygit
+mediainfo
+nvim
+ripgrep
+yazi
+zoxide
+
+{{ if .has_custom_wm }}
+
+brightnessctl
+cliphist
+eww
+gnome-keyring
+hyprlock
+hyprpolkitagent
+kanshi
+niri
+pipewire
+swaybg
+swayidle
+wireplumber
+wl-clip-persist
+wl-clipboard
+xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
+xwayland-satellite
+
+{{ end }}
+{{ if eq .platform "desktop" }}
+
+ghostty
+zathura
+
+{{ end }}

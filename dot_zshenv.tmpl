@@ -1,11 +1,14 @@
+export XDG_BIN_HOME="$HOME/.local/bin"     # Scripts and apps
+export XDG_CONFIG_HOME="$HOME/.config"     # Config files
+export XDG_CACHE_HOME="$HOME/.cache"       # Cache files
+export XDG_DATA_HOME="$HOME/.local/share"  # Application data
+export XDG_STATE_HOME="$HOME/.local/state" # Logs and state files
 
-export XDG_BIN_HOME="$HOME/.local/bin"         # Scripts and apps
-export XDG_CONFIG_HOME="$HOME/.config"         # Config files
-export XDG_CACHE_HOME="$HOME/.cache"           # Cache files
-export XDG_DATA_HOME="$HOME/.local/share"      # Application data
-export XDG_STATE_HOME="$HOME/.local/state"     # Logs and state files
+set -a
+source $XDG_CONFIG_HOME/user-dirs.dirs
+set +a
 
-export TMUX_TMPDIR=$XDG_CACHE_HOME/tmux
+export TMUX_TMPDIR="$XDG_CACHE_HOME/tmux"
 
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export ZSH_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
@@ -28,3 +31,7 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 export PATH="$PATH:$XDG_BIN_HOME:$GOBIN:$XDG_DATA_HOME/gem/ruby/3.4.0/bin/"
 
+{{ if .has_custom_wm }}
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+{{ end }}

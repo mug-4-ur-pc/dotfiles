@@ -1,0 +1,10 @@
+output "ViewSonic Corporation VA2719 Series UNR193360821" {
+    mode 1920x1080@60
+    position 0,0
+    scale 1
+    alias $HOME_DESKTOP
+}
+
+profile desktop_home {
+    output $HOME_DESKTOP
+}

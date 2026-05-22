@@ -64,6 +64,10 @@
       "rev": "e05fb8c3bd61d909dacff24f77f23beb644daf54",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-parinfer": {
+      "rev": "3968e669d9f02589aa311d33cb475b16b27c5fbb",
+      "src": "https://github.com/gpanders/nvim-parinfer"
+    },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -115,6 +119,10 @@
     "yazi.nvim": {
       "rev": "25f370e6e84ca7ebca5927ec66cd93e2fa16fd3d",
       "src": "https://github.com/mikavilpas/yazi.nvim"
+    },
+    "yuck.vim": {
+      "rev": "9b5e0370f70cc30383e1dabd6c215475915fe5c3",
+      "src": "https://github.com/elkowar/yuck.vim"
     }
   }
 }

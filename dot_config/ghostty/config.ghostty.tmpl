@@ -5,7 +5,11 @@ window-decoration = false
 background-image-fit = none
 background-image-repeat = true
 
+{{ if .has_custom_wm }}
+maximize = false
+{{ else }}
 maximize = true
+{{ end }}
 
 window-padding-x = 2
 window-padding-y = 2
@@ -32,7 +36,7 @@ quick-terminal-screen = mouse
 quick-terminal-animation-duration = 0.15
 
 custom-shader = shaders/cursor_sweep.glsl
-custom-shader = shaders/ripple_cursor.glsl
+custom-shader = shaders/ripple_rectangle_cursor.glsl
 
 {{ if .is_laptop }}
 custom-shader-animation = false

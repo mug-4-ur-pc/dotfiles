@@ -131,7 +131,7 @@ separator_style = { fg = "black" }
 # : Confirmation
 
 [confirm]
-border     = { fg = "black" }
+border     = { fg = "#{{ .theme.border }}" }
 title      = { fg = "blue" }
 body       = {}
 list       = {}
@@ -145,7 +145,7 @@ btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 # : Spotter
 
 [spot]
-border = { fg = "black" }
+border = { fg = "#{{ .theme.border }}" }
 title  = { fg = "cyan" }
 
 # Table
@@ -173,7 +173,7 @@ icon_error = ""
 # : Picker
 
 [pick]
-border   = { fg = "black" }
+border   = { fg = "#{{ .theme.border }}" }
 active   = { fg = "magenta", bold = true }
 inactive = { fg = "lightgray" }
 
@@ -183,7 +183,7 @@ inactive = { fg = "lightgray" }
 # : Input
 
 [input]
-border   = { fg = "black" }
+border   = { fg = "#{{ .theme.border }}" }
 title    = {}
 value    = {}
 selected = { bg = "#{{ .theme.picker_background }}", fg = "white" }
@@ -194,7 +194,7 @@ selected = { bg = "#{{ .theme.picker_background }}", fg = "white" }
 # : Completion
 
 [cmp]
-border   = { fg = "black" }
+border   = { fg = "#{{ .theme.border }}" }
 active   = { bg = "#{{ .theme.picker_background }}", fg = "white" }
 inactive = { fg = "lightgray" }
 
@@ -209,7 +209,7 @@ icon_command = ""
 # : Task manager
 
 [tasks]
-border  = { fg = "black" }
+border  = { fg = "#{{ .theme.border }}" }
 title   = {}
 hovered = { fg = "brightmagenta", bold = true }
 

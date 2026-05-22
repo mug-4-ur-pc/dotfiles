@@ -1,0 +1,16 @@
+// ~/.config/eww/eww.scss
+.bar {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.workspace-entry.current {
+  background-color: #89b4fa;
+  color: #1e1e2e;
+}
+
+button:hover {
+  background-color: #313244;
+}

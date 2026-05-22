@@ -4,10 +4,12 @@
 {{- $platform := promptChoiceOnce . "platform" "Choose host type" (list "server" "desktop") -}}
 {{- $gpu := "none" -}}
 {{- $is_laptop := false -}}
+{{- $has_custom_wm := false -}}
 
 {{- if eq $platform "desktop" -}}
 {{-   $gpu = promptChoiceOnce . "gpu" "Choose your GPU type" (list "amd" "intel" "nvidia" "none") -}}
 {{-   $is_laptop = promptBoolOnce . "is_laptop" "Is it a laptop?" -}}
+{{-   $has_custom_wm = promptBoolOnce . "has_custom_wm" "Are you use custom WM?" -}}
 {{- end -}}
 
 {{ $theme := "moss-clay-dark" }}
@@ -21,6 +23,7 @@
     is_laptop = {{ $is_laptop }}
     is_server = {{ eq $platform "server" }}
     is_desktop = {{ eq $platform "desktop" }}
+    has_custom_wm = {{ $has_custom_wm }}
 
 [data.theme]
     name = {{ $theme | quote }}
