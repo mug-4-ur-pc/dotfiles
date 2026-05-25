@@ -1,5 +1,6 @@
 
 hotkey-overlay {
+    hide-not-bound
     skip-at-startup
 }
 
@@ -12,3 +13,10 @@ cursor {
     xcursor-size 24
 }
 
+blur {
+    // off
+    passes 3
+    offset 3.0
+    noise 0.02
+    saturation 1.0
+}

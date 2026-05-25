@@ -1,0 +1,31 @@
+overview {
+    zoom 0.4
+    workspace-shadow {
+        softness 40
+        spread 10
+        // value calculated to fit angle of 155 degrees
+        offset x=12.67854 y=27.18924
+    }
+}
+
+recent-windows {
+    debounce-ms 750
+    open-delay-ms 150
+
+    highlight {
+        padding 3
+        corner-radius 8
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}

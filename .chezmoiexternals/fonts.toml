@@ -1,0 +1,16 @@
+[".local/share/fonts/0xProto"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/0xProto.zip"
+    exact = true
+
+[".local/share/fonts/Alegreya"]
+    type = "archive"
+    url = "https://github.com/huertatipografica/Alegreya/archive/refs/tags/v2.008.zip"
+    exact = true
+    stripComponents = 1
+
+[".local/share/fonts/AlegreyaSans"]
+    type = "archive"
+    url = "https://github.com/huertatipografica/Alegreya-Sans/archive/refs/heads/master.zip"
+    exact = true
+    stripComponents = 1

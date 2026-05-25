@@ -1,0 +1,38 @@
+layout {
+    background-color "#{{ .theme.black }}"
+
+    border {
+        active-gradient from="#{{ .theme.main_color_background }}" to="#{{ .theme.main_color_foreground }}" angle=155
+        inactive-color "#{{ .theme.border }}"
+        urgent-color "#{{ .theme.border }}"
+    }
+
+    shadow {
+        color "#0008"
+        inactive-color "#0008"
+    }
+
+    tab-indicator {
+        active-color "#{{  .theme.picker_background }}"
+        inactive-color "#{{ .theme.background }}"
+        urgent-color "#{{ .theme.picker_background }}"
+    }
+
+    insert-hint {
+        color "#{{ .theme.picker_background }}"
+    }
+}
+
+overview {
+    backdrop-color "#{{ .theme.background }}"
+    workspace-shadow {
+        color "#000B"
+    }
+}
+
+recent-windows {
+    highlight {
+         active-color "#{{ .theme.main_color_background }}ff"
+        urgent-color "#{{ .theme.border }}ff"
+    }
+}

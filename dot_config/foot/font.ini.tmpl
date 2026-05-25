@@ -1,5 +1,5 @@
 {{ if .is_laptop }}
-font=0xProto Nerd Font Mono:size=17
+font={{ .font.mono }}:size=17
 {{ else }}
-font=0xProto Nerd Font Mono:size=13
+font={{ .font.mono }}:size=13
 {{ end }}
