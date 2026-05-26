@@ -25,15 +25,30 @@
     is_desktop = {{ eq $platform "desktop" }}
     has_custom_wm = {{ $has_custom_wm }}
 
+[data.font]
+    mono = "0xProto Nerd Font Mono"
+    propo = "0xProto Nerd Font Propo"
+    regular = "AlegreyaSans"
+    serif = "Alegreya"
+    sans = "AlegreyaSans"
+    {{ if $is_laptop }}
+    size = 17
+    {{ else }}
+    size = 13
+    {{ end }}
+
 [data.theme]
     name = {{ $theme | quote }}
     {{ include (joinPath "themes" $theme) }}
 
-[data.font]
-    mono = "0xProto Nerd Font Mono"
-    propo = "0xProto Nerd Font Propo"
-    regular = "Alegreya"
-    sans = "AlegreyaSans"
+[data.theme.is_dark]
+{{ if (eq .theme.theme_mode "prefer-dark")}}
+int = 1
+bool = true
+{{ else }}
+int = 0
+bool = false
+{{ end }}
 
 [edit]
     watch = true

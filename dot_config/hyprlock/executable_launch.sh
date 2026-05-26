@@ -4,6 +4,8 @@ mode=$1
 inputpath=$XDG_WALLPAPERS_DIR/default.jpg
 savepath=$XDG_CACHE_HOME/wm/lockscreen_wallpaper.jpg
 
+lock_path="$(dirname "$0")/"
+
 function create_bg_from_screenshot() {
     mkdir -p "$(dirname "$1")"
     tmp=/tmp/screenshot.jpg
@@ -35,13 +37,9 @@ function create_bg_from_wallpaper() {
 
 function update_assets() {
     create_bg_from_wallpaper $inputpath $savepath
-    $XDG_CONFIG_HOME/niri/scripts/lock/clock.py
+    "$lock_path/generate_clock.py"
 }
 
 update_assets
 
-if [[ "$mode" == "off" ]]; then
-    niri msg action power-off-monitors
-fi
-
-pidof hyprlock || hyprlock -c $XDG_CONFIG_HOME/niri/scripts/lock/hyprlock.conf
+pidof hyprlock || hyprlock -c "$lock_path/hyprlock.conf"

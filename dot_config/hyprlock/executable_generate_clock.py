@@ -476,6 +476,7 @@ def main():
         os.makedirs(output_dir, exist_ok=True)
 
     clock_img.save(args.output, "PNG")
+    print(args.output)
 
 
 if __name__ == "__main__":

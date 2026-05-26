@@ -1,0 +1,24 @@
+[Appearance]
+style=Fusion
+standard_dialogs=gtk3
+
+custom_palette=true
+color_scheme_path=$XDG_CONFIG_HOME/qt6ct/colors/Custom.conf
+
+icon_theme={{ .theme.icons }}
+
+[Fonts]
+general="Sans Serif,{{ .font.size }},-1,5,50,0,0,0,0,0"
+fixed="Monospace,{{ .font.size }},-1,5,50,0,0,0,0,0"
+
+[Interface]
+dialog_show_button_icons=true
+menus_have_icons=true
+standard_dialogs=xdgdesktopportal
+toolbutton_style=4
+activate_item_on_single_click=1
+gui_effects=General, AnimateMenu, AnimateCombo, FadeTooltip, AnimateToolBox
+show_shortcuts_in_context_menus=true
+stylesheets=/usr/share/qt6ct/qss/fusion-fixes.qss, /usr/share/qt6ct/qss/scrollbar-simple.qss
+underline_shortcut=0
+

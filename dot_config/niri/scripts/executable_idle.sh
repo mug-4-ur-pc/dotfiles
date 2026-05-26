@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-lock=$XDG_CONFIG_HOME/niri/scripts/lock.sh
+lock="$XDG_CONFIG_HOME/hyprlock/launch.sh"
 
 killall swayidle
 

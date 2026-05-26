@@ -1,6 +1,9 @@
 background = "2a2f24"
 foreground = "f1eadc"
 
+secondary_background = "2a2f24"
+secondary_foreground = "807c58"
+
 main_color_background = "a6848d"
 main_color_foreground = "7da191"
 
@@ -32,3 +35,12 @@ brightblue    = "89a8ba"
 brightmagenta = "c6a5ad"
 brightcyan    = "a1c0b3"
 white         = "fffaf2"
+
+icons = "Papirus-Dark"
+
+theme_mode = "prefer-dark"
+
+[data.theme.cursor]
+    theme = "Bibata-Modern-Ice"
+    size = 24
+

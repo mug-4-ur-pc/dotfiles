@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [[ $1 == "update" ]]; then
+    niri msg action do-screen-transition --delay-ms 1000
+    fc-cache -f
+    kvantummanager --set YourCustomThemeName # TODO
+fi
+
+gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+gsettings set org.gnome.desktop.interface icon-theme "{{ .theme.icons }}"
+gsettings set org.gnome.desktop.interface font-name "{{ .font.regular }} {{ .font.size }}"
+gsettings set org.gnome.desktop.interface color-scheme "{{ .theme.theme_mode }}"

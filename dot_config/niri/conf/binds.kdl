@@ -4,8 +4,8 @@ binds {
 
     Mod+Return hotkey-overlay-title="Open terminal: foot" { spawn "ghostty"; }
     Mod+Space hotkey-overlay-title="Run app launcher" { spawn "rofi" "-show" "drun"; }
-    Super+D allow-when-locked=true hotkey-overlay-title="Lock the screen" { spawn-sh "$XDG_CONFIG_HOME/niri/scripts/lock.sh"; }
-    Super+Shift+D allow-when-locked=true hotkey-overlay-title="Lock and turn off the screen" { spawn-sh "$XDG_CONFIG_HOME/niri/scripts/lock.sh off"; }
+    Super+D allow-when-locked=true hotkey-overlay-title="Lock the screen" { spawn-sh "$XDG_CONFIG_HOME/hyprlock/launch.sh"; }
+    Super+Shift+D allow-when-locked=true hotkey-overlay-title="Lock and turn off the screen" { spawn-sh "niri msg action power-off-monitors; $XDG_CONFIG_HOME/hyprlock/launch.sh"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-l" "1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
@@ -135,8 +135,8 @@ binds {
     Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
-    Mod+M { maximize-window-to-edges; }
-    Mod+Shift+M { maximize-column; }
+    Mod+M { maximize-column; }
+    Mod+Shift+M { maximize-window-to-edges; }
     Mod+Alt+M { fullscreen-window; }
 
     Mod+C { center-column; }
