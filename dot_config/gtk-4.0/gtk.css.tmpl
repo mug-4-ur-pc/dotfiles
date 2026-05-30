@@ -20,14 +20,14 @@
    ======================================================== */
 @define-color headerbar_bg_color #{{ .theme.secondary_background }};
 @define-color headerbar_fg_color #{{ .theme.secondary_foreground }};
-@define-color headerbar_border_color #{{ .theme.white }}14; /* Divider line below headerbar */
+@define-color headerbar_border_color rgba({{ template "hex_to_rgb" .theme.white }}, 0.08); /* Divider line below headerbar */
 @define-color headerbar_backdrop_color @window_bg_color; /* Headerbar color when window is unfocused */
 @define-color headerbar_shade_color rgba(0, 0, 0, 0.36); /* Shadows applied to headerbar */
 
 /* ========================================================
    CARDS / DIALOGS / POPOVERS
    ======================================================== */
-@define-color card_bg_color #{{ .theme.white }}14; /* Background for grouped lists/cards */
+@define-color card_bg_color rgba({{ template "hex_to_rgb" .theme.white }}, 0.08); /* Background for grouped lists/cards */
 @define-color card_fg_color #{{ .theme.foreground }};
 @define-color card_shade_color rgba(0, 0, 0, 0.36); /* Drop shadow for cards */
 

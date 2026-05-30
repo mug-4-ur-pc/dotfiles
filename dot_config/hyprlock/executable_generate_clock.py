@@ -263,7 +263,9 @@ def get_minute_hand_points(L):
     return outer, [c1, c2]
 
 
-def generate_clock_image(config, target_size=600):
+def generate_clock_image(
+    curr_time: datetime.datetime, config: dict[str, str], target_size: int = 600
+) -> Image.Image:
     """
     Draws the clock at a 4x upscale canvas and downsamples using LANCZOS
     to provide highly clean vector-like visual fidelity.
@@ -350,7 +352,7 @@ def generate_clock_image(config, target_size=600):
         "I",
         "II",
         "III",
-        "IIII",
+        "IV",
         "V",
         "VI",
         "VII",
@@ -402,10 +404,9 @@ def generate_clock_image(config, target_size=600):
     # -------------------------------------------------------------------------
     # 6. Hands Positioning and Calculations
     # -------------------------------------------------------------------------
-    now = datetime.datetime.now()
-    hour = now.hour % 12
-    minute = now.minute
-    second = now.second
+    hour = curr_time.hour % 12
+    minute = curr_time.minute
+    second = curr_time.second
 
     # Seamless linear sweep calculations for high accuracy
     angle_minute = math.radians((minute + second / 60.0) * 6.0)
@@ -441,6 +442,13 @@ def generate_clock_image(config, target_size=600):
     return final_img
 
 
+def need_regeneration(output: str, minute: int) -> bool:
+    if not os.path.exists(output):
+        return True
+    prev_time = os.path.getmtime(output)
+    return datetime.datetime.fromtimestamp(prev_time).minute != minute
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Generate a beautiful, high-quality Baroque analog clock image."
@@ -468,14 +476,18 @@ def main():
     )
 
     args = parser.parse_args()
-    config = parse_config(args.config)
-    clock_img = generate_clock_image(config, target_size=args.size)
 
-    output_dir: str = os.path.dirname(os.path.abspath(args.output))
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
+    curr_time = datetime.datetime.now()
+    if need_regeneration(args.output, curr_time.minute):
+        config = parse_config(args.config)
+        clock_img = generate_clock_image(curr_time, config, target_size=args.size)
 
-    clock_img.save(args.output, "PNG")
+        output_dir: str = os.path.dirname(os.path.abspath(args.output))
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+
+        clock_img.save(args.output, "PNG")
+
     print(args.output)
 
 

@@ -1,0 +1,5 @@
+{{- $hex := . -}}
+{{- if hasPrefix "#" $hex -}}
+  {{- $hex = trimPrefix "#" $hex -}}
+{{- end -}}
+{{- template "hex_to_dec" (substr 0 2 $hex) -}},{{- template "hex_to_dec" (substr 2 4 $hex) -}},{{- template "hex_to_dec" (substr 4 6 $hex) -}}

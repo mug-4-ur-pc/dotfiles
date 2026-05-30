@@ -1,0 +1,89 @@
+
+# -----------------------------------------------------------------------------
+# GENERAL BEHAVIOR
+# -----------------------------------------------------------------------------
+set window-title-basename true
+set window-title-page true
+set statusbar-home-tilde true
+set selection-clipboard clipboard
+set adjust-open best-fit
+set pages-per-row 1
+set page-v-padding 2
+set page-h-padding 2
+set page-cache-size 50
+set page-thumbnail-size 16777216
+set scroll-step 60
+set scroll-hstep 20
+set scroll-full-overlap 0.15
+set scroll-wrap false
+set scroll-page-aware true
+
+# -----------------------------------------------------------------------------
+# UI APPEARANCE
+# -----------------------------------------------------------------------------
+set font "monospace normal {{ .font.size }}"
+set statusbar-h-padding 8
+set statusbar-v-padding 2
+set guioptions "shv"
+
+# -----------------------------------------------------------------------------
+# DARK THEME (Midnight Blue / Slate)
+# -----------------------------------------------------------------------------
+# Background colors
+set default-bg "#{{ .theme.background }}"
+set default-fg "#{{ .theme.foreground }}"
+
+# Statusbar colors
+set statusbar-bg "#{{ .theme.background }}"            # Statusbar background
+set statusbar-fg "#{{ .theme.main_color_foreground }}"            # Statusbar text
+
+# Input/Command bar colors
+set inputbar-bg "#{{ .theme.background }}"
+set inputbar-fg "#{{ .theme.main_color_foreground }}"
+
+# Notification colors
+set notification-bg "#{{ .theme.secondary_background }}"
+set notification-fg "#{{ .theme.foreground }}"
+set notification-error-bg "#{{ .theme.secondary_background }}"
+set notification-error-fg "#{{ .theme.brightred }}"
+set notification-warning-bg "#{{ .theme.secondary_background }}"
+set notification-warning-fg "#{{ .theme.brightyellow }}"
+
+# Highlight/Selection colors
+set highlight-color "rgba({{ template "hex_to_rgb" .theme.highlight_background }}, 0.5)"
+set highlight-active-color "rgba({{ template "hex_to_rgb" .theme.cursor_background }}, 0.5)"
+set highlight-fg "#{{ .theme.highlight_foreground }}"
+
+set completion-bg "#{{ .theme.background }}"
+set completion-fg "#{{ .theme.main_color_foreground }}"
+set completion-group-bg "#{{ .theme.background }}"
+set completion-group-fg "#{{ .theme.foreground }}"
+set completion-highlight-bg "#{{ .theme.picker_background }}"
+set completion-highlight-fg "#{{ .theme.picker_foreground }}"
+
+# Recolor mode (for dark PDFs)
+set recolor true
+set recolor-adjust-lightness false
+set recolor-keephue true
+set recolor-reverse-video true
+set recolor-darkcolor "#{{ .theme.foreground }}"
+set recolor-lightcolor "#{{ .theme.background }}"
+
+set render-loading true
+set render-loading-bg "#{{ .theme.cursor_background }}"
+set render-loading-fg "#{{ .theme.cursor_foreground }}"
+
+# Index (outline) settings
+set index-bg "#{{ .theme.background }}"
+set index-fg "#{{ .theme.main_color_foreground }}"
+set index-active-bg "#{{ .theme.picker_background }}"
+set index-active-fg "#{{ .theme.picker_foreground }}"
+
+# -----------------------------------------------------------------------------
+# ADVANCED SETTINGS
+# -----------------------------------------------------------------------------
+set synctex true
+set synctex-editor-command "$TERMINAL -e nvim +%{line} %{input}"
+set dbus-service true
+set double-click-follow true
+

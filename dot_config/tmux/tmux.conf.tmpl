@@ -77,8 +77,6 @@ unbind -T copy-mode-vi MouseDragEnd1Pane
 set -g @plugin 'tmux-plugins/tpm'
 
 # List of tmux plugins
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'hendrikmi/tmux-cpu-mem-monitor'
 
@@ -103,12 +101,6 @@ set -g message-style "fg=${act_fg},bg=${highlight_color},bold"
 set -g mode-style "fg=${act_fg},bg=${highlight_color}"
 set -g pane-border-style "fg=${border}"
 set -g pane-active-border-style "fg=${act_border}"
-
-# Resurrect
-set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-dir '~/.local/share/tmux/resurrect'
-set -g @continuum-restore 'on'
-set -g @continuum-save-interval '10'
 
 # vim integration
 {{ if lookPath "nvim" }}
