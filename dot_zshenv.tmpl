@@ -31,6 +31,8 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 export PATH="$PATH:$XDG_BIN_HOME:$GOBIN:$XDG_DATA_HOME/gem/ruby/3.4.0/bin/"
 
+export VIRTUAL_ENV="$XDG_DATA_HOME/virtualenvs/default"
+
 {{ if .has_custom_wm }}
 export GTK_BACKEND="wayland,x11"
 export QT_QPA_PLATFORM="wayland;xcb"

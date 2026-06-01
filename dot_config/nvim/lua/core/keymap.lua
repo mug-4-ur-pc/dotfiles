@@ -146,7 +146,7 @@ set_map('n', '<leader>fc', function() Snacks.picker.command_history() end, 'Comm
 set_map('n', '<leader>fC', function() Snacks.picker.commands() end, 'Commands')
 set_map('n', '<leader>fD', function() Snacks.picker.diagnostics() end, 'Diagnostics')
 set_map('n', '<leader>fd', function() Snacks.picker.diagnostics_buffer() end, 'Buffer Diagnostics')
-set_map('n', '<leader>fF', function() Snacks.picker.files { cwd = "~/" } end, 'Find Config File')
+set_map('n', '<leader>fF', function() Snacks.picker.files { cwd = '~/' } end, 'Find Config File')
 set_map('n', '<leader>ff', function() Snacks.picker.files() end, 'Find Files')
 set_map('n', '<leader>fh', function() Snacks.picker.help() end, 'Help Pages')
 set_map('n', '<leader>fH', function() Snacks.picker.highlights() end, 'Highlights')
@@ -161,3 +161,5 @@ set_map('n', '<leader>fq', function() Snacks.picker.qflist() end, 'Quickfix List
 set_map('n', '<leader>fr', function() Snacks.picker.resume() end, 'Resume')
 set_map('n', '<leader>fu', function() Snacks.picker.undo() end, 'Undo History')
 set_map('n', '<leader>f.', function() Snacks.picker.recent() end, 'Recent')
+
+set_map('n', '<leader>lv', '<cmd>VenvSelect<cr>', 'Select python env')
