@@ -2,8 +2,8 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open terminal: foot" { spawn "ghostty"; }
-    Mod+Space hotkey-overlay-title="Run app launcher" { spawn "rofi" "-show" "drun"; }
+    Mod+Return hotkey-overlay-title="Open terminal: foot" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Run app launcher" { spawn "fuzzel"; }
     Super+D allow-when-locked=true hotkey-overlay-title="Lock the screen" { spawn-sh "$XDG_CONFIG_HOME/hyprlock/launch.sh"; }
     Super+Shift+D allow-when-locked=true hotkey-overlay-title="Lock and turn off the screen" { spawn-sh "niri msg action power-off-monitors; $XDG_CONFIG_HOME/hyprlock/launch.sh"; }
 
@@ -153,7 +153,7 @@ binds {
 
     Mod+T { toggle-column-tabbed-display; }
 
-    Print { screenshot-screen show-pointer=true; }
+    Print     { screenshot-screen show-pointer=true; }
     Mod+Print { screenshot show-pointer=false; }
     Alt+Print { screenshot-window show-pointer=false; }
 

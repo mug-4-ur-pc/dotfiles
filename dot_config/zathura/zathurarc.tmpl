@@ -21,7 +21,7 @@ set scroll-page-aware true
 # -----------------------------------------------------------------------------
 # UI APPEARANCE
 # -----------------------------------------------------------------------------
-set font "monospace normal {{ .font.size }}"
+set font "monospace normal {{ .font.size.M }}"
 set statusbar-h-padding 8
 set statusbar-v-padding 2
 set guioptions "shv"
@@ -34,32 +34,32 @@ set default-bg "#{{ .theme.background }}"
 set default-fg "#{{ .theme.foreground }}"
 
 # Statusbar colors
-set statusbar-bg "#{{ .theme.background }}"            # Statusbar background
-set statusbar-fg "#{{ .theme.main_color_foreground }}"            # Statusbar text
+set statusbar-bg "#{{ .theme.tertiary }}"            # Statusbar background
+set statusbar-fg "#{{ .theme.tertiary_fg }}"            # Statusbar text
 
 # Input/Command bar colors
-set inputbar-bg "#{{ .theme.background }}"
-set inputbar-fg "#{{ .theme.main_color_foreground }}"
+set inputbar-bg "#{{ .theme.tertiary_container }}"
+set inputbar-fg "#{{ .theme.tertiary_container_fg }}"
 
 # Notification colors
-set notification-bg "#{{ .theme.secondary_background }}"
-set notification-fg "#{{ .theme.foreground }}"
-set notification-error-bg "#{{ .theme.secondary_background }}"
-set notification-error-fg "#{{ .theme.brightred }}"
-set notification-warning-bg "#{{ .theme.secondary_background }}"
+set notification-bg "#{{ .theme.surface }}"
+set notification-fg "#{{ .theme.surface_fg }}"
+set notification-error-bg "#{{ .theme.error_container }}"
+set notification-error-fg "#{{ .theme.error_container_fg }}"
+set notification-warning-bg "#{{ .theme.surface }}"
 set notification-warning-fg "#{{ .theme.brightyellow }}"
 
 # Highlight/Selection colors
-set highlight-color "rgba({{ template "hex_to_rgb" .theme.highlight_background }}, 0.5)"
-set highlight-active-color "rgba({{ template "hex_to_rgb" .theme.cursor_background }}, 0.5)"
-set highlight-fg "#{{ .theme.highlight_foreground }}"
+set highlight-color "rgba({{ template "hex_to_rgb" .theme.primary_container }}, 0.6)"
+set highlight-active-color "rgba({{ template "hex_to_rgb" .theme.inverse_primary }}, 0.6)"
+set highlight-fg "#{{ .theme.primary_container_fg }}"
 
-set completion-bg "#{{ .theme.background }}"
-set completion-fg "#{{ .theme.main_color_foreground }}"
-set completion-group-bg "#{{ .theme.background }}"
-set completion-group-fg "#{{ .theme.foreground }}"
-set completion-highlight-bg "#{{ .theme.picker_background }}"
-set completion-highlight-fg "#{{ .theme.picker_foreground }}"
+set completion-bg "#{{ .theme.surface }}"
+set completion-fg "#{{ .theme.surface_fg }}"
+set completion-group-bg "#{{ .theme.surface_variant }}"
+set completion-group-fg "#{{ .theme.surface_variant_fg }}"
+set completion-highlight-bg "#{{ .theme.secondary }}"
+set completion-highlight-fg "#{{ .theme.secondary_fg }}"
 
 # Recolor mode (for dark PDFs)
 set recolor true
@@ -70,14 +70,14 @@ set recolor-darkcolor "#{{ .theme.foreground }}"
 set recolor-lightcolor "#{{ .theme.background }}"
 
 set render-loading true
-set render-loading-bg "#{{ .theme.cursor_background }}"
-set render-loading-fg "#{{ .theme.cursor_foreground }}"
+set render-loading-bg "#{{ .theme.inverse_primary }}"
+set render-loading-fg "#{{ .theme.inverse_surface_fg }}"
 
 # Index (outline) settings
-set index-bg "#{{ .theme.background }}"
-set index-fg "#{{ .theme.main_color_foreground }}"
-set index-active-bg "#{{ .theme.picker_background }}"
-set index-active-fg "#{{ .theme.picker_foreground }}"
+set index-bg "#{{ .theme.tertiary }}"
+set index-fg "#{{ .theme.tertiary_fg }}"
+set index-active-bg "#{{ .theme.secondary }}"
+set index-active-fg "#{{ .theme.secondary_fg }}"
 
 # -----------------------------------------------------------------------------
 # ADVANCED SETTINGS

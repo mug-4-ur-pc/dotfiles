@@ -45,6 +45,7 @@ text/x-moc=nvim.desktop
 text/x-pascal=nvim.desktop
 text/x-tcl=nvim.desktop
 text/x-tex=nvim.desktop
+x-scheme-handler/sftp=thunar.desktop
 
 [Added Associations]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;

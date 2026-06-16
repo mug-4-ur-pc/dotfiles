@@ -40,6 +40,7 @@ local parsers = {
     'markdown',
     'markdown_inline',
     'python',
+    'qmljs',
     'query',
     'regex',
     'sql',
@@ -51,6 +52,10 @@ local parsers = {
     'vimdoc',
     'yaml',
     'zsh',
+}
+
+local disable_ts_format = {
+    'qml',
 }
 
 require('nvim-treesitter').install(parsers)
@@ -67,7 +72,8 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.treesitter.start(buf, language)
         vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo.foldmethod = 'expr'
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+        if not vim.tbl_contains(disable_ts_format, filetype) then vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
     end,
 })
 

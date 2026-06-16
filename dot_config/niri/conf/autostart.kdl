@@ -1,13 +1,20 @@
 
+// Monitor manager
 spawn-at-startup "kanshi"
 
+// Desktop Shell
+spawn-at-startup "qs" "--no-duplicate"
+
+// Clipboard
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
+// Custsom scripts
 spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/wallpaper.sh"
 spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/idle.sh"
 spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/clipboard.sh"
 spawn-sh-at-startup "$XDG_CONFIG_HOME/niri/scripts/theme.sh"
 
+// Polkit Agent
 spawn-at-startup "/usr/lib/hyprpolkitagent/hyprpolkitagent"
-
-spawn-sh-at-startup "$XDG_CONFIG_HOME/eww/launch.sh"
-
-spawn-sh-at-startup "$XDG_CONFIG_HOME/waybar/launch.sh"

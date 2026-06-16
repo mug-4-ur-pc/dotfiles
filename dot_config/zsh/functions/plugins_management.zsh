@@ -51,8 +51,9 @@ function plugin-update {
 
     if ((time_diff >= min_time_diff)); then
         if ping -c 1 -W 2 google.com &>/dev/null; then
-            rm -rf $_zplugindir 2>/dev/null
-            mkdir -p $_zplugindir
+            rm -rf "$_zplugindir" 2>/dev/null
+            rm -rf "$FAST_WORK_DIR" 2>/dev/null
+            mkdir -p "$_zplugindir"
             echo $current_time >$time_file
             echo 'Updating ZSH plugins...'
         fi
@@ -60,8 +61,8 @@ function plugin-update {
 }
 
 function fast-theme-generate() {
-    mkdir -p $FAST_WORK_DIR
+    mkdir -p "$FAST_WORK_DIR"
     if [[ ! -f $FAST_WORK_DIR/current_theme.zsh.zwc || $1 = '-f' || $1 = '--force' ]]; then
-        fast-theme $ZDOTDIR/fast_theme.ini
+        fast-theme "$ZDOTDIR/fast_theme.ini"
     fi
 }

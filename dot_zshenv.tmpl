@@ -17,6 +17,7 @@ export ZSH_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
+export PAGER='nvim -R -c "noremap q ZQ" -'
 export MANPAGER='nvim +Man!'
 {{ end }}
 {{ if lookPath "zathura" }}
@@ -31,7 +32,7 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 export PATH="$PATH:$XDG_BIN_HOME:$GOBIN:$XDG_DATA_HOME/gem/ruby/3.4.0/bin/"
 
-export VIRTUAL_ENV="$XDG_DATA_HOME/virtualenvs/default"
+export DEFAULT_VIRTUAL_ENV="$XDG_DATA_HOME/virtualenvs/default"
 
 {{ if .has_custom_wm }}
 export GTK_BACKEND="wayland,x11"

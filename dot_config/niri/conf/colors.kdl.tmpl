@@ -1,38 +1,38 @@
 layout {
-    background-color "#{{ .theme.black }}"
+    background-color "#{{ .theme.surface_variant }}"
 
     border {
-        active-gradient from="#{{ .theme.main_color_background }}" to="#{{ .theme.main_color_foreground }}" angle=155
-        inactive-color "#{{ .theme.border }}"
-        urgent-color "#{{ .theme.border }}"
+        active-gradient from="#{{ .theme.primary_container }}" to="#{{ .theme.inverse_surface }}" angle=155
+        inactive-color "#{{ .theme.outline_variant }}"
+        urgent-color "#{{ .theme.outline_variant }}"
     }
 
     shadow {
-        color "#0008"
-        inactive-color "#0008"
+        color "#{{ .theme.shadow_rgba }}"
+        inactive-color "#{{ .theme.shadow_rgba }}"
     }
 
     tab-indicator {
-        active-color "#{{  .theme.picker_background }}"
-        inactive-color "#{{ .theme.background }}"
-        urgent-color "#{{ .theme.picker_background }}"
+        active-color "#{{  .theme.secondary }}"
+        inactive-color "#{{ .theme.surface }}"
+        urgent-color "#{{ .theme.secondary }}"
     }
 
     insert-hint {
-        color "#{{ .theme.picker_background }}"
+        color "#{{ .theme.secondary }}"
     }
 }
 
 overview {
-    backdrop-color "#{{ .theme.background }}"
+    backdrop-color "#{{ .theme.surface }}"
     workspace-shadow {
-        color "#000B"
+        color "#{{ .theme.shadow_rgba }}"
     }
 }
 
 recent-windows {
     highlight {
-         active-color "#{{ .theme.main_color_background }}ff"
-        urgent-color "#{{ .theme.border }}ff"
+         active-color "#{{ .theme.primary_container }}ff"
+        urgent-color "#{{ .theme.outline_variant }}ff"
     }
 }

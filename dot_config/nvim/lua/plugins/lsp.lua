@@ -19,6 +19,7 @@ require('mason-tool-installer').setup {
         'ruff',
         'shfmt',
         'vtsls',
+        'qmlls',
         'html',
         'cssls',
     },

@@ -1,0 +1,74 @@
+
+cursor #{{ .theme.inverse_primary }}
+cursor_text_color #{{ .theme.inverse_surface_fg }}
+
+foreground #{{ .theme.foreground }}
+background #{{ .theme.background }}
+
+selection_foreground #{{ .theme.primary_container_fg }}
+selection_background #{{ .theme.primary_container }}
+
+url_color #{{ .theme.blue }}
+url_style curly
+
+mark1_foreground #{{ .theme.error_fg }}
+mark1_background #{{ .theme.error }}
+mark2_foreground #{{ .theme.inverse_surface_fg }}
+mark2_background #{{ .theme.brightyellow }}
+mark3_foreground #{{ .theme.inverse_surface_fg }}
+mark3_background #{{ .theme.cyan }}
+
+#: black
+color0 #{{ .theme.black }}
+color8 #{{ .theme.darkgray }}
+#: red
+color1 #{{ .theme.red }}
+color9 #{{ .theme.brightred }}
+#: green
+color2  #{{ .theme.green }}
+color10 #{{ .theme.brightgreen }}
+#: yellow
+color3  #{{ .theme.yellow }}
+color11 #{{ .theme.brightyellow }}
+#: blue
+color4  #{{ .theme.blue }}
+color12 #{{ .theme.brightblue }}
+#: magenta
+color5  #{{ .theme.magenta }}
+color13 #{{ .theme.brightmagenta }}
+#: cyan
+color6  #{{ .theme.cyan }}
+color14 #{{ .theme.brightcyan }}
+#: white
+color7  #{{ .theme.lightgray }}
+color15 #{{ .theme.white }}
+
+background_opacity {{ .theme.opacity }}
+dynamic_background_opacity no
+{{ if (eq .theme.background .theme.surface) }}
+transparent_background_colors #{{ .theme.secondary }}@ #{{ .theme.primary_container }}@
+{{ else }}
+transparent_background_colors #{{ .theme.surface}}@ #{{ .theme.secondary }}@ #{{ .theme.primary_container }}@
+{{ end }}
+dim_opacity 0.4
+{{ if .theme.is_dark }}
+palette_generate fixed
+{{ else }}
+palette_generate semantic
+{{ end }}
+
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}"
+active_tab_title_template none
+
+active_tab_foreground   #{{ .theme.secondary_fg }}
+active_tab_background   #{{ .theme.secondary }}
+inactive_tab_foreground #{{ .theme.tertiary_fg }}
+inactive_tab_background #{{ .theme.tertiary }}
+
+tab_bar_background none
+tab_bar_margin_color none
+
+active_border_color #{{ .theme.primary_container }}
+inactive_border_color #{{ .theme.outline_variant }}
+bell_border_color #{{ .theme.inverse_surface }}
+inactive_text_alpha 1.0

@@ -60,3 +60,8 @@ function sw() {
     mv $2 $1
     mv $tmp $2
 }
+
+function env-activate() {
+    file="$DEFAULT_VIRTUAL_ENV/bin/activate"
+    source "$file"
+}

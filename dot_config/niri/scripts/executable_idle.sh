@@ -14,7 +14,7 @@ if command -v acpi; then
         timeout 900 'systemctl suspend' \
         before-sleep "$lock" \
         after-resume "niri msg action power-on-monitors" \
-        lock "$lock" &
+        lock "$lock"
 else
     swayidle -w \
         timeout 450 'loginctl lock-session' \
@@ -22,5 +22,5 @@ else
         resume "niri msg action power-on-monitors" \
         before-sleep "$lock" \
         after-resume "niri msg action power-on-monitors" \
-        lock "$lock" &
+        lock "$lock"
 fi

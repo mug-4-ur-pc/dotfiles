@@ -24,7 +24,7 @@ overall = {}
 cwd = { fg = "cyan", bold = true }
 
 # Find
-find_keyword  = { bg = "#{{ .theme.picker_background }}", fg = "yellow", bold = true, italic = true, underline = true }
+find_keyword  = { bg = "#{{ .theme.secondary }}", fg = "yellow", bold = true, italic = true, underline = true }
 find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
 # Symlink
@@ -54,7 +54,7 @@ syntect_theme = ""
 # : Tabs
 
 [tabs]
-active   = { bg = "#{{ .theme.picker_background }}", fg = "brightmagenta", bold = true, italic = true }
+active   = { bg = "#{{ .theme.secondary }}", fg = "brightmagenta", bold = true, italic = true }
 inactive = { bg = "#{{ .theme.background }}", fg = "magenta", italic = true }
 
 # Separator
@@ -84,9 +84,9 @@ unset_alt  = { bg = "red", fg = "white", bold = true, italic = true }
 # : Indicator of hovered file
 
 [indicator]
-parent  = { bg = "#{{ .theme.picker_background }}", fg = "white", italic = true }
-current = { bg = "#{{ .theme.picker_background }}", fg = "white", bold = true }
-preview = { bg = "#{{ .theme.picker_background }}", fg = "white", italic = true }
+parent  = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}", italic = true }
+current = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}", bold = true }
+preview = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}", italic = true }
 padding = { open = "", close = "" }
 
 # :
@@ -108,8 +108,8 @@ perm_exec  = { fg = "cyan" }
 
 # Progress
 progress_label  = { bold = true }
-progress_normal = { fg = "green", bg = "#{{ .theme.picker_background }}" }
-progress_error  = { fg = "lightyellow", bg = "#{{ .theme.picker_background }}" }
+progress_normal = { fg = "green", bg = "#{{ .theme.secondary }}" }
+progress_error  = { fg = "lightyellow", bg = "#{{ .theme.secondary }}" }
 
 # :
 
@@ -131,7 +131,7 @@ separator_style = { fg = "black" }
 # : Confirmation
 
 [confirm]
-border     = { fg = "#{{ .theme.border }}" }
+border     = { fg = "#{{ .theme.outline_variant }}" }
 title      = { fg = "blue" }
 body       = {}
 list       = {}
@@ -145,7 +145,7 @@ btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 # : Spotter
 
 [spot]
-border = { fg = "#{{ .theme.border }}" }
+border = { fg = "#{{ .theme.outline_variant }}" }
 title  = { fg = "cyan" }
 
 # Table
@@ -173,7 +173,7 @@ icon_error = ""
 # : Picker
 
 [pick]
-border   = { fg = "#{{ .theme.border }}" }
+border   = { fg = "#{{ .theme.outline_variant }}" }
 active   = { fg = "magenta", bold = true }
 inactive = { fg = "lightgray" }
 
@@ -183,10 +183,10 @@ inactive = { fg = "lightgray" }
 # : Input
 
 [input]
-border   = { fg = "#{{ .theme.border }}" }
+border   = { fg = "#{{ .theme.outline_variant }}" }
 title    = {}
 value    = {}
-selected = { bg = "#{{ .theme.picker_background }}", fg = "white" }
+selected = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}" }
 
 # :
 
@@ -194,8 +194,8 @@ selected = { bg = "#{{ .theme.picker_background }}", fg = "white" }
 # : Completion
 
 [cmp]
-border   = { fg = "#{{ .theme.border }}" }
-active   = { bg = "#{{ .theme.picker_background }}", fg = "white" }
+border   = { fg = "#{{ .theme.outline_variant }}" }
+active   = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}" }
 inactive = { fg = "lightgray" }
 
 # Icons
@@ -209,7 +209,7 @@ icon_command = ""
 # : Task manager
 
 [tasks]
-border  = { fg = "#{{ .theme.border }}" }
+border  = { fg = "#{{ .theme.outline_variant }}" }
 title   = {}
 hovered = { fg = "brightmagenta", bold = true }
 
@@ -222,7 +222,7 @@ hovered = { fg = "brightmagenta", bold = true }
 on      = { fg = "cyan" }
 run     = { fg = "magenta" }
 desc    = { fg = "lightgray" }
-hovered = { bg = "#{{ .theme.picker_background }}", fg = "white", bold = true }
+hovered = { bg = "#{{ .theme.secondary }}", fg = "#{{ .theme.secondary_fg }}", bold = true }
 footer  = { bg = "black", fg = "white" }
 
 # :

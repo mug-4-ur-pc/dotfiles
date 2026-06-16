@@ -35,9 +35,6 @@ fast-theme-generate
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bold,italic'
 
-#(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[path]='fg=white'
-
 fpath=($_zplugindir/zsh-completions/src $fpath)
 
 # History setup
@@ -68,7 +65,7 @@ unsetopt flow_control
 unsetopt beep
 unsetopt notify
 
-if command -v dirname >/dev/null 2>&1; then
+if command -v dirname &>/dev/null; then
     eval $(dircolors -b)
 else
     LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32'
@@ -134,12 +131,12 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
-export _ZO_EXCLUDE_DIRS="/etc:/var:/usr"
+export _ZO_EXCLUDE_DIRS="/tmp:/var:/var:${CHEZMOI_SOURCE_DIR:-$XDG_DATA_HOME/chezmoi}/*"
 
-if command -v fzf >/dev/null 2>&1; then
+if command -v fzf &>/dev/null; then
     source <(fzf --zsh)
 fi
-if command -v zoxide >/dev/null 2>&1; then
+if command -v zoxide &>/dev/null; then
     eval "$(zoxide init --cmd cd zsh)"
 fi
 
@@ -149,5 +146,3 @@ source $ZDOTDIR/colors.zsh
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
     exec niri-session
 fi
-
-source $VIRTUAL_ENV/bin/activate

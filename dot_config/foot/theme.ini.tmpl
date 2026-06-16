@@ -1,5 +1,5 @@
 [colors-dark]
-alpha=0.85
+alpha={{ .theme.opacity }}
 
 background={{ .theme.background }}
 foreground={{ .theme.foreground }}
@@ -8,7 +8,7 @@ foreground={{ .theme.foreground }}
 #flash=2a2f24
 #flash-alpha=0.5
 
-cursor={{ .theme.cursor_foreground }} {{ .theme.cursor_background }}
+cursor={{ .theme.inverse_surface_fg }} {{ .theme.inverse_primary }}
 
 ## Normal/regular colors (color palette 0-7)
 regular0={{ .theme.black }}  # black
@@ -31,10 +31,10 @@ bright6={{ .theme.brightcyan }}   # bright cyan
 bright7={{ .theme.white }}   # bright white
 
 ## Misc colors
-selection-foreground={{ .theme.highlight_foreground }}
-selection-background={{ .theme.highlight_background }}
+selection-foreground={{ .theme.primary_container_fg }}
+selection-background={{ .theme.primary_container }}
 # jump-labels=<regular0> <regular3>          # black-on-yellow
 # scrollback-indicator=<regular0> <bright4>  # black-on-bright-blue
 # search-box-no-match=<regular0> <regular1>  # black-on-red
 # search-box-match=<regular0> <regular3>     # black-on-yellow
-urls={{ .theme.main_color_foreground }}
+urls={{ .theme.tertiary_fg }}

@@ -1,8 +1,8 @@
 
-zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}ma=38;2;$(_hex_to_sh_rgb {{ .theme.picker_foreground }});48;2;$(_hex_to_sh_rgb {{ .theme.picker_background }})"
+zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}ma=38;2;$(_hex_to_sh_rgb {{ .theme.secondary_fg }});48;2;$(_hex_to_sh_rgb {{ .theme.secondary }})"
 
 export FZF_DEFAULT_OPTS="
-  --color=bg+:#{{ .theme.picker_background }},fg+:#{{ .theme.picker_foreground }},pointer:#{{ .theme.main_color_foreground }}
+  --color=bg+:#{{ .theme.secondary }},fg+:#{{ .theme.secondary_fg }},pointer:#{{ .theme.tertiary_container_fg }}
   --height=50%
   --layout=reverse
   --info=inline

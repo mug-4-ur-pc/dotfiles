@@ -2,9 +2,9 @@
    ACCENT COLORS
    Used for active buttons, sliders, text highlights, etc.
    ======================================================== */
-@define-color accent_color #{{ .theme.main_color_foreground }}; /* Used for text/border on dark backgrounds */
-@define-color accent_bg_color #{{ .theme.highlight_background }}; /* Main solid accent background */
-@define-color accent_fg_color #{{ .theme.highlight_foreground }}; /* Text/icon color drawn on top of the accent_bg_color */
+@define-color accent_color #{{ .theme.primary_container }}; /* Used for text/border on dark backgrounds */
+@define-color accent_bg_color #{{ .theme.primary }}; /* Main solid accent background */
+@define-color accent_fg_color #{{ .theme.primary_fg }}; /* Text/icon color drawn on top of the accent_bg_color */
 
 /* ========================================================
    BACKGROUND / WINDOW COLORS
@@ -12,38 +12,38 @@
    ======================================================== */
 @define-color window_bg_color #{{ .theme.background }}; /* Main background of the application window */
 @define-color window_fg_color #{{ .theme.foreground }}; /* Default text color */
-@define-color view_bg_color #{{ .theme.background }}; /* Background for text views, lists, and canvas areas */
-@define-color view_fg_color #{{ .theme.foreground }}; /* Text on top of view_bg_color */
+@define-color view_bg_color #{{ .theme.surface }}; /* Background for text views, lists, and canvas areas */
+@define-color view_fg_color #{{ .theme.surface_fg }}; /* Text on top of view_bg_color */
 
 /* ========================================================
    HEADER BAR COLORS (Titlebars)
    ======================================================== */
-@define-color headerbar_bg_color #{{ .theme.secondary_background }};
-@define-color headerbar_fg_color #{{ .theme.secondary_foreground }};
-@define-color headerbar_border_color rgba({{ template "hex_to_rgb" .theme.white }}, 0.08); /* Divider line below headerbar */
+@define-color headerbar_bg_color #{{ .theme.surface }};
+@define-color headerbar_fg_color #{{ .theme.surface_fg }};
+@define-color headerbar_border_color #{{ .theme.outline_variant }}; /* Divider line below headerbar */
 @define-color headerbar_backdrop_color @window_bg_color; /* Headerbar color when window is unfocused */
-@define-color headerbar_shade_color rgba(0, 0, 0, 0.36); /* Shadows applied to headerbar */
+@define-color headerbar_shade_color rgba({{ template "hex_to_rgba" .theme.shadow_rgba }}); /* Shadows applied to headerbar */
 
 /* ========================================================
    CARDS / DIALOGS / POPOVERS
    ======================================================== */
-@define-color card_bg_color rgba({{ template "hex_to_rgb" .theme.white }}, 0.08); /* Background for grouped lists/cards */
-@define-color card_fg_color #{{ .theme.foreground }};
-@define-color card_shade_color rgba(0, 0, 0, 0.36); /* Drop shadow for cards */
+@define-color card_bg_color #{{ .theme.surface_variant }}; /* Background for grouped lists/cards */
+@define-color card_fg_color #{{ .theme.surface_variant_fg }};
+@define-color card_shade_color rgba({{ template "hex_to_rgba" .theme.shadow_rgba }}); /* Drop shadow for cards */
 
-@define-color dialog_bg_color #{{ .theme.secondary_background }}; /* Background of popup dialogs */
-@define-color dialog_fg_color #{{ .theme.foreground }};
+@define-color dialog_bg_color #{{ .theme.surface }}; /* Background of popup dialogs */
+@define-color dialog_fg_color #{{ .theme.surface_fg }};
 
-@define-color popover_bg_color #{{ .theme.secondary_background }}; /* Background for right-click menus / popovers */
-@define-color popover_fg_color #{{ .theme.foreground }};
+@define-color popover_bg_color #{{ .theme.surface_variant }}; /* Background for right-click menus / popovers */
+@define-color popover_fg_color #{{ .theme.surface_variant_fg }};
 
 /* ========================================================
    STATE COLORS (Success, Warning, Error, Destructive)
    ======================================================== */
 /* Destructive (e.g., "Delete" buttons) */
-@define-color destructive_color #{{ .theme.brightmagenta }};
-@define-color destructive_bg_color #{{ .theme.magenta }};
-@define-color destructive_fg_color #{{ .theme.white }};
+@define-color destructive_color #{{ .theme.tertiary }};
+@define-color destructive_bg_color #{{ .theme.tertiary_container }};
+@define-color destructive_fg_color #{{ .theme.tertiary_container_fg }};
 
 /* Success (e.g., "Completed" states) */
 @define-color success_color #{{ .theme.brightgreen }};
@@ -56,12 +56,12 @@
 @define-color warning_fg_color #{{ .theme.black }};
 
 /* Error (e.g., Input field errors) */
-@define-color error_color #{{ .theme.brightred }};
-@define-color error_bg_color #{{ .theme.red }};
-@define-color error_fg_color #{{ .theme.white }};
+@define-color error_color #{{ .theme.error_fg }};
+@define-color error_bg_color #{{ .theme.error_container }};
+@define-color error_fg_color #{{ .theme.error_container_fg }};
 
 /* ========================================================
    MISC SHADES
    ======================================================== */
-@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color shade_color rgba({{ template "hex_to_rgba" .theme.shadow_rgba }});
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);

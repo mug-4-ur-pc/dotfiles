@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-wl-clip-persist --clipboard both &
-wl-paste --type text --watch cliphist store &
-wl-paste --type image --watch cliphist store &

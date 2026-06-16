@@ -4,5 +4,5 @@ fc-cache -f
 
 gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
 gsettings set org.gnome.desktop.interface icon-theme "{{ .theme.icons }}"
-gsettings set org.gnome.desktop.interface font-name "{{ .font.regular }} {{ .font.size }}"
-gsettings set org.gnome.desktop.interface color-scheme "{{ .theme.theme_mode }}"
+gsettings set org.gnome.desktop.interface font-name "{{ .font.regular }} {{ .font.size.M }}"
+gsettings set org.gnome.desktop.interface color-scheme "{{ if .theme.is_dark }}prefer-dark{{ else }}prefer-light{{ end }}"

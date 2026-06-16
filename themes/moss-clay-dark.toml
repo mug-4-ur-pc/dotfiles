@@ -1,0 +1,68 @@
+[data.theme]
+    name    = "moss-clay-dark.toml"
+    is_dark = true
+
+    opacity = 0.85
+
+    background  = "2a2f24"
+    foreground  = "f1eadc"
+
+    primary                 = "784b3b"
+    primary_fg              = "f1eadc"
+    primary_container       = "915a46"
+    primary_container_fg    = "fffaf2"
+
+    secondary               = "4f5b2a"
+    secondary_fg            = "fffaf2"
+    secondary_container     = "10120e"
+    secondary_container_fg  = "fffaf2"
+
+    tertiary                = "2a2f24"
+    tertiary_fg             = "a6848d"
+    tertiary_container      = "4f5b2a"
+    tertiary_container_fg   = "c6a5ad"
+
+    error               = "2a2f24"
+    error_fg            = "c96f4a"
+    error_container     = "c96f4a"
+    error_container_fg  = "fffaf2"
+
+    surface             = "2a2f24"
+    surface_fg          = "f1eadc"
+    surface_variant     = "4f5b2a"
+    surface_variant_fg  = "fffaf2"
+
+    inverse_surface     = "f1eadc"
+    inverse_surface_fg  = "2a2f24"
+    inverse_primary     = "e28a6a"
+
+    outline         = "807c58"
+    outline_variant = "2a2f24"
+    shadow_rgba          = "00000088"
+    shadow_argb          = "88000000"
+    scrim           = "10120e"
+
+    black     = "4f5b2a"
+    red       = "c96f4a"
+    green     = "83915c"
+    yellow    = "d2b45c"
+    blue      = "5d849a"
+    magenta   = "a6848d"
+    cyan      = "7da191"
+    lightgray = "f1eadc"
+
+    darkgray      = "807c58"
+    brightred     = "e28a6a"
+    brightgreen   = "a8b683"
+    brightyellow  = "e7c57a"
+    brightblue    = "89a8ba"
+    brightmagenta = "c6a5ad"
+    brightcyan    = "a1c0b3"
+    white         = "fffaf2"
+
+    icons = "Papirus-Dark"
+
+[data.theme.cursor]
+    theme   = "Bibata-Modern-Ice"
+    size    = 24
+

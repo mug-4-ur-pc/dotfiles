@@ -3,7 +3,7 @@ vim.pack.add {
 }
 
 require('gitsigns').setup {
-    numhl = true,
+    signs_staged_enable = true,
     on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 

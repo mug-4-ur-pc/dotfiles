@@ -81,12 +81,12 @@ set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'hendrikmi/tmux-cpu-mem-monitor'
 
 # Style
-fg="color6"
-act_bg="color8"
-act_fg="color15"
-highlight_color="color2"
-border="color8"
-act_border="color5"
+fg="#{{ .theme.tertiary_fg }}"
+act_bg="#{{ .theme.secondary }}"
+act_fg="#{{ .theme.secondary_fg }}"
+highlight_color="#{{ .theme.primary_container }}"
+border="#{{ .theme.outline }}"
+act_border="#{{ .theme.primary_container }}"
 
 set -g status-position top
 set -g status-left-length 160

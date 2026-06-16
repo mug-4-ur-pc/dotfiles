@@ -1,11 +1,14 @@
+
+background-opacity = {{ .theme.opacity }}
+
 background = #{{ .theme.background }}
 foreground = #{{ .theme.foreground }}
 
-selection-background = #{{ .theme.highlight_background }}
-selection-foreground = #{{ .theme.highlight_foreground }}
+selection-background = #{{ .theme.primary_container }}
+selection-foreground = #{{ .theme.primary_container_fg }}
 
-cursor-color = #{{ .theme.cursor_background }}
-cursor-text = #{{ .theme.cursor_foreground }}
+cursor-color = #{{ .theme.inverse_primary }}
+cursor-text = #{{ .theme.inverse_surface_fg }}
 
 # black
 palette = 0=#{{ .theme.black }}

@@ -12,7 +12,15 @@
 {{-   $has_custom_wm = promptBoolOnce . "has_custom_wm" "Are you use custom WM?" -}}
 {{- end -}}
 
-{{ $theme := "moss-clay-dark" }}
+{{- $theme := env "CHEZMOI_THEME" -}}
+{{- if not $theme -}}
+{{-     if hasKey . "theme" -}}
+{{-         $theme = .theme.name -}}
+{{-     else -}}
+{{-         $theme = "moss-clay-dark.toml" -}}
+{{-     end -}}
+{{- end -}}
+{{- $themeFileContent := include (joinPath "themes" $theme) -}}
 
 [data]
     email = {{ $email | quote }}
@@ -31,24 +39,16 @@
     regular = "AlegreyaSans"
     serif = "Alegreya"
     sans = "AlegreyaSans"
-    {{ if $is_laptop }}
-    size = 17
-    {{ else }}
-    size = 13
-    {{ end }}
 
-[data.theme]
-    name = {{ $theme | quote }}
-    {{ include (joinPath "themes" $theme) }}
+[data.font.size]
+    XS = 9
+    S = 11
+    M = 13
+    L = 17
+    XL = 20
+    XXL = 30
 
-[data.theme.is_dark]
-{{ if (eq .theme.theme_mode "prefer-dark")}}
-int = 1
-bool = true
-{{ else }}
-int = 0
-bool = false
-{{ end }}
+{{ $themeFileContent }}
 
 [edit]
     watch = true
