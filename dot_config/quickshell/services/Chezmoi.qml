@@ -32,7 +32,7 @@ Singleton {
 
     FileView {
         id: file
-        path: `${PathUtils.configDir}/chezmoi/chezmoi.toml`
+        path: `${Utils.configDir}/chezmoi/chezmoi.toml`
         preload: false
         watchChanges: true
         onFileChanged: root.reload()
@@ -43,7 +43,7 @@ Singleton {
     }
 
     function getColor(key: string): color {
-        const c = this.data?.theme
+        const c = this.data?.theme[key]
         return c === undefined ? "transparent" : `#${c}`
     }
 }

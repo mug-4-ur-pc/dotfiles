@@ -40,7 +40,6 @@ local parsers = {
     'markdown',
     'markdown_inline',
     'python',
-    'qmljs',
     'query',
     'regex',
     'sql',

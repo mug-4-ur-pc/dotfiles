@@ -23,8 +23,8 @@ plugins=(
     "zsh-users/zsh-completions"
 )
 
-# Automatically update every 7 days
-plugin-update 7
+# Automatically update every 14 days
+plugin-update 14
 plugin-load $plugins
 
 # Load prompt

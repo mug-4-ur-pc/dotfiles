@@ -7,7 +7,7 @@ import qs.services
 FileView {
     property var json: {{}}
 
-    path: Quickshell.statePath("config.json")
+    path: Quickshell.dataPath("config.json")
     blockLoading: true
     watchChanges: true
 

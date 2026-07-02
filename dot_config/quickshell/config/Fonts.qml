@@ -1,11 +1,12 @@
 
+import Quickshell
 import Quickshell.Io
 
 import qs.services
 
 JsonObject {
     id: fonts
-    default property var cfg: {{}}
+    required property var cfg
 
     readonly property string mono:      cfg?.mono    ?? Chezmoi.data.font.mono
     readonly property string propo:     cfg?.propo   ?? Chezmoi.data.font.propo
@@ -20,5 +21,27 @@ JsonObject {
         readonly property int l:   cfg?.sizeL   ?? Chezmoi.data.font.size.L
         readonly property int xl:  cfg?.sizeXL  ?? Chezmoi.data.font.size.XL
         readonly property int xxl: cfg?.sizeXXL ?? Chezmoi.data.font.size.XXL
+    }
+
+    onRegularChanged: this.updateGtkFont()
+    onSizeChanged: this.updateGtkFont()
+
+    property string currGtkFont: ""
+    property int currGtkFontSize: 0
+
+    function updateGtkFont() {
+        const needUpdate = this.currGtkFont == "" && this.currGtkFontSize == 0;
+        const gtkFont = `${this.regular} ${this.size.m}`;
+
+        if (needUpdate) {
+            Quickshell.execDetached([
+                "gsettings",
+                "set",
+                "org.gnome.desktop.interface",
+                "font-name",
+                gtkFont
+            ]);
+            Logger.info("Font", `Set font ${gtkFont}`);
+        }
     }
 }

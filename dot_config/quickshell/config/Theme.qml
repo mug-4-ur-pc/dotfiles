@@ -1,12 +1,13 @@
 
+import QtQuick
+import Quickshell
 import Quickshell.Io
 
-import QtQuick
 import qs.services
 
 JsonObject {
     id: theme
-    default property var cfg: {{}}
+    required property var cfg
 
     readonly property string name:   cfg?.name   ?? Chezmoi.data.theme.name
     readonly property bool   isDark: cfg?.isDark ?? Chezmoi.data.theme.is_dark
@@ -67,4 +68,55 @@ JsonObject {
     readonly property color brightmagenta:  cfg?.brightmagenta  ?? Chezmoi.getColor("brightmagenta")
     readonly property color brightcyan:     cfg?.brightcyan     ?? Chezmoi.getColor("brightcyan")
     readonly property color white:          cfg?.white          ?? Chezmoi.getColor("white")
+
+    readonly property real gradientDegree:  cfg?.gradientDegree ?? Chezmoi.data.theme.gradient_angle
+    readonly property real shadowLength:    cfg?.shadowLength   ?? 10
+
+    onIconThemeChanged: this.updateIconTheme()
+    onIsDarkChanged: this.updateThemeType()
+
+    Component.onCompleted: {
+        Quickshell.execDetached(["fc-cache", "-f"]);
+        Quickshell.execDetached([
+            "gsettings",
+            "set",
+            "org.gnome.desktop.interface",
+            "gtk-theme",
+            "adw-gtk3-dark"
+        ]);
+        Logger.debug("Theme", "Initialized");
+    }
+
+    function updateIconTheme() {
+        Quickshell.execDetached([
+            "gsettings",
+            "set",
+            "org.gnome.desktop.interface",
+            "icon-theme",
+            this.iconTheme
+        ]);
+        Logger.info("Theme", `Set icon theme ${this.iconTheme}`);
+    }
+
+    function updateThemeType() {
+        if (this.isDark) {
+            Quickshell.execDetached([
+                "gsettings",
+                "set",
+                "org.gnome.desktop.interface",
+                "color-scheme",
+                "prefer-dark"
+            ]);
+            Logger.info("Theme", `Set dark theme`);
+        } else {
+            Quickshell.execDetached([
+                "gsettings",
+                "set",
+                "org.gnome.desktop.interface",
+                "color-scheme",
+                "prefer-light"
+            ]);
+            Logger.info("Theme", `Set light theme`);
+        }
+    }
 }

@@ -1,8 +1,8 @@
 layout {
-    background-color "#{{ .theme.surface_variant }}"
+    background-color "#000000"
 
     border {
-        active-gradient from="#{{ .theme.primary_container }}" to="#{{ .theme.inverse_surface }}" angle=155
+        active-gradient from="#{{ .theme.primary_container_fg }}" to="#{{ .theme.primary_container }}" angle={{ .theme.gradient_angle }}
         inactive-color "#{{ .theme.outline_variant }}"
         urgent-color "#{{ .theme.outline_variant }}"
     }

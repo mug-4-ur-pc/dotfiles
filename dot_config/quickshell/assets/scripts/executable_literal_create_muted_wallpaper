@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+inputpath="$1"
+savepath="$2"
+
+function create_bg_from_wallpaper() {
+    mkdir -p "$(dirname "$2")"
+    if [[ $1 -nt $2 ]]; then
+        ffmpeg -i "$1" -vf "
+            scale=iw/4:ih/4:flags=neighbor,
+            scale=iw*4:ih*4:flags=neighbor,
+            gblur=sigma=2,
+            eq=brightness=-0.3:contrast=1.5,
+            vignette='PI/5',
+            noise=alls=20:allf=t+u,
+            format=yuv420p
+          " -q:v 1 -y "$2"
+    fi
+}
+
+create_bg_from_wallpaper "$inputpath" "$savepath"

@@ -60,6 +60,7 @@
     brightcyan    = "a1c0b3"
     white         = "fffaf2"
 
+    gradient_angle = 155
     icons = "Papirus-Dark"
 
 [data.theme.cursor]

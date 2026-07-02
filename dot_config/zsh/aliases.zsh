@@ -48,3 +48,5 @@ alias ...='cd ../..'
 alias ~='cd ~'
 
 alias s='env -u TERMINFO sudo'
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitten ssh"
