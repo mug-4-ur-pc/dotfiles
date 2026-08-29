@@ -19,8 +19,8 @@ Singleton {
     }
 
     function iconFile(fname: string): string {
-        const p = Quickshell.shellPath(`assets/icons/${fname}`)
-        return `file://${p}`
+        fname = Quickshell.shellPath(`assets/icons/${fname}`);
+        return `file://${fname}`;
     }
 
     function setColorOpacity(color: color, opacity: real): color {

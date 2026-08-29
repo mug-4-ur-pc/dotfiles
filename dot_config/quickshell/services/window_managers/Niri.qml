@@ -14,6 +14,8 @@ WMInterface {
         }
     }
 
+    logoutCmd: ["niri", "msg", "action", "quit", "--skip-confirmation"]
+
     Process {
         id: listener
         command: ["niri", "msg", "--json", "event-stream"]

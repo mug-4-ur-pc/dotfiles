@@ -9,6 +9,7 @@ Singleton {
     CustomLoader { id: custom }
 
     readonly property JsonObject bar:       BarConfig    { cfg: custom.json?.bar ?? {} }
+    readonly property JsonObject menu:      MenuConfig   { cfg: custom.json?.menu ?? {} }
     readonly property JsonObject popups:    PopupsConfig { cfg: custom.json?.popups ?? {} }
     readonly property JsonObject font:      Fonts        { cfg: custom.json?.fonts ?? {} }
     readonly property JsonObject theme:     Theme        { cfg: custom.json?.theme ?? {} }

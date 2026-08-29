@@ -5,6 +5,17 @@ output "ViewSonic Corporation VA2719 Series UNR193360821" {
     alias $HOME_DESKTOP
 }
 
+output "AU Optronics 0x21ED Unknown" {
+    mode 1920x1080
+    position 0,0
+    scale 1.3
+    alias $HOME_LAPTOP
+}
+
 profile desktop_home {
     output $HOME_DESKTOP
+}
+
+profile laptop_home {
+    output $HOME_LAPTOP
 }

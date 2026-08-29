@@ -1,6 +1,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Widgets
 
 import qs.config
 import qs.services
@@ -10,68 +11,79 @@ Item {
     id: root
     anchors.fill: parent
 
-    property alias model: listView.model
-    property alias text: searchInput.text
+    property alias model: view.model
+    property bool hasSearch: this.placeholderText !== ""
     property string placeholderText: ""
-    property var onTriggered: (index) => {}
-    default property alias delegate: listView.delegate
+    property string query: searchPanel.item?.query ?? ""
+    property var onTriggered: (item) => {}
+    default property alias delegate: view.delegate
 
-    onFocusChanged: {
-        if (focus) {
-            searchInput.forceActiveFocus()
+    Loader {
+        id: searchPanel
+        active: root.hasSearch
+        y: (root.y + view.y) / 2
+        anchors.horizontalCenter: view.horizontalCenter
+        sourceComponent: SearchField {
+            anchors.centerIn: parent
+            placeholderText: root.placeholderText
         }
     }
 
-    ColumnLayout {
+    GridView {
+        id: view
         anchors.centerIn: parent
-        width: Math.min(parent.width * 0.4, 600)
-        height: Math.min(parent.height * 0.7, 800)
-        spacing: Config.bar.spacing * 2
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: Config.font.size.xl * 3
-            color: Utils.setColorOpacity(Config.theme.surface, 0.5)
-            radius: Config.bar.radius
+        height: Config.menu.nRows * this.cellHeight
+        width: Config.menu.nColumns * this.cellWidth
+        cellHeight: Config.menu.height + Config.menu.spacing
+        cellWidth: Config.menu.width + Config.menu.spacing
+        clip: true
+        focus: true
+        boundsBehavior: Flickable.StopAtBounds
 
-            TextInput {
-                id: searchInput
-                anchors.fill: parent
-                anchors.margins: Config.bar.margins
-                verticalAlignment: TextInput.AlignVCenter
-                font.family: Config.font.regular
-                font.pointSize: Config.font.size.l
-                color: Config.theme.surfaceFg
-                clip: true
-                focus: true
+        keyNavigationEnabled: true
 
-                Text {
-                    anchors.fill: parent
-                    verticalAlignment: TextInput.AlignVCenter
-                    text: root.placeholderText
-                    color: Utils.setColorOpacity(Config.theme.surfaceFg, 0.4)
-                    font: parent.font
-                    visible: parent.text.length === 0
-                }
+        function hoverIndex(index: int) {
+            if (!hoverBlock.running) {
+                this.currentIndex = index;
             }
         }
+    }
 
-        ListView {
-            id: listView
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            spacing: Config.bar.spacing
-            boundsBehavior: Flickable.StopAtBounds
-            keyNavigationEnabled: true
+    WrapperRectangle {
+        id: noItemsContainer
+        visible: view.count === 0
+        anchors.centerIn: view
+        color: Utils.setColorOpacity(Config.theme.background, Config.menu.opacity)
+        radius: this.height / 2
+        margin: Config.menu.margins * 2
+
+        Text {
+            color: Config.theme.foreground
+            horizontalAlignment: Text.AlignVCenter
+            font.family: Config.font.regular
+            font.pointSize: Config.font.size.xl
+            font.weight: Font.Normal
+
+            text: "No items available"
         }
+    }
+
+    onQueryChanged: hoverBlock.running = true
+
+    Timer {
+        id: hoverBlock
+        interval: 500
+        running: true
     }
 
     Keys.onEscapePressed: MenuState.close()
-    Keys.onReturnPressed: {
-        if (listView.currentItem && root.onTriggered) {
-            root.onTriggered(listView.currentIndex)
+    Keys.onReturnPressed: this.onTriggered(view.currentIndex);
+    Keys.forwardTo: [view]
+
+    Component.onCompleted: {
+        if (!this.hasSearch) {
+            forceActiveFocus();
         }
     }
-    Keys.onUpPressed: listView.decrementCurrentIndex()
-    Keys.onDownPressed: listView.incrementCurrentIndex()
 }

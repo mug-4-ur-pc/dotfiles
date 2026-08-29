@@ -4,84 +4,69 @@ import QtQuick.Layouts
 import Quickshell.Widgets
 
 import qs.config
-import qs.components
 import qs.utils
 
-Item {
+WrapperRectangle {
     id: root
+
+    required property var modelData
+    required property int index
 
     property string textLabel: ""
     property string iconSource: ""
-    property bool isSelected: false
 
     signal clicked()
+    signal rclicked()
 
-    width: ListView.view.width
-    height: Config.font.size.xl * 3 + Config.bar.margins * 2
+    height: GridView.view.cellHeight - Config.menu.spacing
+    width: GridView.view.cellWidth - Config.menu.spacing
+    margin: Config.menu.margins
 
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        onClicked: root.clicked()
-        onPositionChanged: {
+    radius: Config.menu.radius
+    color: Utils.setColorOpacity(root.GridView.isCurrentItem ? Config.theme.inversePrimary : Config.theme.inverseSurface, Config.menu.opacity)
+
+    RowLayout {
+        IconImage {
+            implicitSize: parent.height
+            asynchronous: true
+            source: root.iconSource
+        }
+
+        Text {
+            Layout.fillWidth: true
+            Layout.leftMargin: Config.menu.margins
+
+            text: root.textLabel
+            color: Config.theme.inverseSurfaceFg
+
+            elide: Text.ElideRight
+            verticalAlignment: Text.AlignVCenter
+
+            font.family: Config.font.regular
+            font.pointSize: Config.font.size.xl
+            font.weight: Font.Black
+        }
+    }
+
+    HoverHandler {
+        id: hoverHandler
+        cursorShape: Qt.PointingHandCursor
+        onHoveredChanged: {
             if (this.hovered) {
-                root.ListView.view.currentIndex = this.index
+                root.GridView.view.hoverIndex(root.index);
             }
         }
     }
 
-    Item {
-        id: container
-        anchors.centerIn: parent
-        width: parent.width - Config.bar.margins * 2
-        height: parent.height - Config.bar.margins
+    TapHandler {
+        id: tapHandler
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-        scale: root.isSelected ? 1.25 : 1.0
-        z: root.isSelected ? 10 : 1
-
-        Behavior on scale { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
-
-        Loader {
-            anchors.fill: parent
-            sourceComponent: root.isSelected ? activeBg : inactiveBg
-        }
-
-        Component {
-            id: inactiveBg
-            Rectangle {
-                color: Utils.setColorOpacity(Config.theme.surface, 0.4)
-                radius: Config.bar.radius
-            }
-        }
-
-        Component {
-            id: activeBg
-            DecoratedSurface {}
-        }
-
-        RowLayout {
-            anchors.fill: parent
-            anchors.margins: Config.bar.margins
-            spacing: Config.bar.margins
-
-            IconImage {
-                Layout.preferredWidth: parent.height - Config.bar.margins * 2
-                Layout.preferredHeight: parent.height - Config.bar.margins * 2
-                Layout.alignment: Qt.AlignVCenter
-
-                asynchronous: true
-                source: root.iconSource
-            }
-
-            Text {
-                Layout.fillWidth: true
-                Layout.alignment: Qt.AlignVCenter
-                text: root.textLabel
-                font.family: Config.font.regular
-                font.pointSize: Config.font.size.m
-                font.weight: Font.Bold
-                color: Config.theme.surfaceFg
-                elide: Text.ElideRight
+        onTapped: (eventPoint, button) => {
+            if (button === Qt.LeftButton) {
+                root.clicked();
+            } else if (button === Qt.RightButton) {
+                root.rclicked();
             }
         }
     }

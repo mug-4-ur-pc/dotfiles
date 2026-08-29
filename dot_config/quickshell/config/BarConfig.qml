@@ -19,10 +19,10 @@ JsonObject {
     readonly property int spacing: cfg?.spacing ?? 10
     readonly property int longSpacing: cfg?.longSpacing ?? 4
 
-    readonly property string clockScale: cfg?.clockScale ?? 0.95
-    readonly property string layoutScale: cfg?.layoutScale ?? 0.75
-    readonly property string iconScale: cfg?.iconScale ?? 0.6
-    readonly property string activeWindowScale: cfg?.activeWindowScale ?? 0.8
+    readonly property real clockScale: cfg?.clockScale ?? 0.95
+    readonly property real layoutScale: cfg?.layoutScale ?? 0.75
+    readonly property real iconScale: cfg?.iconScale ?? 0.6
+    readonly property real activeWindowScale: cfg?.activeWindowScale ?? 0.8
 
     readonly property int activeWindowWidth: cfg?.activeWindowWidth ?? 750
 }

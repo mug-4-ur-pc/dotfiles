@@ -22,13 +22,11 @@ PanelWindow {
         top: Config.bar.onTop
     }
 
+    WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.keyboardFocus: root.isMenuOpened ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
     color: "transparent"
     implicitHeight: screen.height
-    // implicitHeight: {
-    //     const inner = Config.bar.height + Config.bar.margins;
-    //     const outer = Math.max(Config.bar.margins, this.shadowHeight);
-    //     return inner + outer;
-    // }
 
     exclusiveZone: Config.bar.height + Config.bar.margins
     mask: Region {

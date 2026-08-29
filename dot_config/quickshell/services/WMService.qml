@@ -16,6 +16,7 @@ Singleton {
     }
 
     property bool screenEnabled: provider.screenEnabled
+    property list<string> logoutCnd: provider.logoutCmd
 
     Loader {
         id: wmLoader
@@ -33,8 +34,8 @@ Singleton {
 
     readonly property WindowManagers.WMInterface provider: wmLoader.item
 
-    function f() {
-
+    function logout() {
+        Quickshell.execDetached(this.logoutCmd);
     }
 
     Component.onCompleted: {

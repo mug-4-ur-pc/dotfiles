@@ -28,7 +28,7 @@ Scope {
         timeout: Config.idle.lockSeconds
         onIsIdleChanged: {
             if (this.isIdle) {
-                root.lockScreen();
+                root.lock();
             }
         }
     }
@@ -49,15 +49,43 @@ Scope {
     onIsScreenOffChanged: {
         if (this.isScreenOff) {
             Logger.info("Idle", "Screen  turned off");
-            this.lockScreen();
+            this.lock();
         } else {
             Logger.info("Idle", "Screen  turned on");
         }
         WMService.screenEnabled = !this.isScreenOff;
     }
 
-    function lockScreen() {
+    function lock() {
         Quickshell.execDetached([`${Utils.home}/.config/hyprlock/launch.sh`]);
+    }
+
+    function suspend() {
+        this.lock();
+        Quickshell.execDetached(["systemctl", "suspend"]);
+    }
+
+    function hibernate() {
+        this.lock();
+        Quickshell.execDetached(["systemctl", "hibernate"]);
+    }
+
+    function logout() {
+        this._closeAllWindows();
+        WMService.logout();
+        Qt.quit();
+    }
+
+    function reboot() {
+        this._closeAllWindows();
+        Quickshell.execDetached(["systemctl", "reboot"]);
+        Qt.quit();
+    }
+
+    function shutdown() {
+        this._closeAllWindows();
+        Quickshell.execDetached(["systemctl", "poweroff"]);
+        Qt.quit();
     }
 
     Component.onCompleted: {

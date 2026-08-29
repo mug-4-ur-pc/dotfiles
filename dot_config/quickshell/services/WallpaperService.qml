@@ -1,5 +1,6 @@
 pragma Singleton
 
+import QtQuick
 import Quickshell
 import Quickshell.Io
 
@@ -18,9 +19,7 @@ Singleton {
         decoratedImageCreator.running = true;
     }
 
-    onOrigPathChanged: {
-        this.reset();
-    }
+    onOrigPathChanged: this.reset()
 
     Process {
         id: decoratedImageCreator
@@ -28,7 +27,7 @@ Singleton {
         onExited: (code) => {
             if (code) {
                 Logger.warn("Wallpaper", `Can't create decorated wallpaper. Exit code ${code}`);
-                Logger.warn("Wallpaper", `${root.origPath}, ${root.decoratedPath}, ${command}`);
+                Logger.warn("Wallpaper", `${root.origPath}, ${root.decoratedPath}`);
             }
             this.done = true;
         }

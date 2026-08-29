@@ -14,6 +14,9 @@ JsonObject {
 
     readonly property string iconTheme: cfg?.iconTheme ?? Chezmoi.data.theme.icons
 
+    readonly property string cursorTheme: cfg?.cursorTheme ?? Chezmoi.data.theme.cursor.theme
+    readonly property string cursorSize: cfg?.cursorSize ?? Chezmoi.data.theme.cursor.size
+
     readonly property color background: cfg?.background ?? Chezmoi.getColor("background")
     readonly property color foreground: cfg?.background ?? Chezmoi.getColor("foreground")
 
@@ -75,6 +78,9 @@ JsonObject {
     onIconThemeChanged: this.updateIconTheme()
     onIsDarkChanged: this.updateThemeType()
 
+    onCursorThemeChanged: this.updateCursor()
+    onCursorSizeChanged: this.updateCursor()
+
     Component.onCompleted: {
         Quickshell.execDetached(["fc-cache", "-f"]);
         Quickshell.execDetached([
@@ -96,6 +102,24 @@ JsonObject {
             this.iconTheme
         ]);
         Logger.info("Theme", `Set icon theme ${this.iconTheme}`);
+    }
+
+    function updateCursor() {
+        Quickshell.execDetached([
+            "gsettings",
+            "set",
+            "org.gnome.desktop.interface",
+            "cursor-theme",
+            this.cursorTheme
+        ]);
+        Quickshell.execDetached([
+            "gsettings",
+            "set",
+            "org.gnome.desktop.interface",
+            "cursor-size",
+            this.cursorSize
+        ]);
+        Logger.info("Theme", `Set cursor ${this.cursorTheme} ${this.cursorSize}`);
     }
 
     function updateThemeType() {
